@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link type="text/css" rel="stylesheet" href="css/global.css">
+    <link type="text/css" rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>SCINT 北台學生灣資訊社群</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li class="navbar-item"><a href="index.php">首頁</a></li>
+            <a class="navbar-item discord-button" href="member.php">加入 Discord</a>
+        </ul>
+    </nav>
+    <div class="banner">
+        <div class="banner-content">
+            <img class="banner-image" src="assets/logo.png">
+            <h2>北台學生灣資訊社群</h2>
+        </div>
+        <i class="fa-solid fa-chevron-down down-arrow"></i>
+    </div>
+    <div class="container">
+        <h1 class="title">關於我們</h1>
+        <div class="about-us">
+            <section>
+                <h2>核心價值</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia officiis incidunt ea consectetur veritatis voluptate nisi reprehenderit, nemo sunt facere repudiandae eum tempore, facilis commodi fugiat voluptatum eos magni dolore.</p>
+            </section>
+            <section>
+                <h2>創辦理念</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem enim vero provident amet blanditiis incidunt exercitationem fuga. Optio debitis placeat odio, saepe recusandae qui assumenda est sapiente voluptatibus. Unde, iure.</p>
+            </section>
+            <section>
+                <h2>成員組成</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis labore soluta ab, enim veniam eum repudiandae possimus corrupti unde quasi exercitationem omnis doloremque eius ad sit excepturi libero corporis quas.</p>
+            </section>
+        </div>
+        <h1 class="title">合作社團</h1>
+        <div class="clubs">
+            <section>
+                <img class="club-image" src="assets/clubs/club_1.jpg">
+                <div class="club-info">
+                    <p>XX高中｜電腦資訊暨網路科技研究社</p>
+                    <div class="club-socials">
+                        <a href="/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="/"><i class="fa-solid fa-globe"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <div class="contact">
+            <a href="/"><i class="fa-solid fa-envelope"></i></a>
+            <a href="/"><i class="fa-brands fa-github"></i></a>
+            <a href="/"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p class="copyright">© 2023 SCINT. All rights reserved.</p>
+    </footer>
+    <script>
+        const downArrow = document.querySelector('.down-arrow');
+        const container = document.querySelector('.container');
+        downArrow.addEventListener('click', () => {
+            container.scrollIntoView({behavior: 'smooth'});
+        });
+    </script>
+</body>
+</html>
