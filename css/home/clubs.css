@@ -1,0 +1,145 @@
+
+.clubs {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    gap: 2rem;
+}
+
+.clubs-row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.club-card {
+    background-color: var(--bg-secondary);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex: 1;
+    margin: 0;
+}
+
+.club-name, .club-school {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.club-school {
+    position: relative;
+}
+
+.club-image {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 1rem;
+}
+
+.club-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.club-info > hr {
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid var(--bg-primary);
+    width: 100%;
+}
+
+.club-info > p {
+    margin: 0;
+}
+
+.club-socials {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.club-socials > a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--bg-primary);
+    transition: 100ms;
+}
+
+.club-socials > a:hover {
+    transform: scale(1.1);
+    color: var(--bg-primary-light);
+}
+
+.club-avatars {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.club-avatar {
+    width: 3rem;
+    border-radius: 10rem;
+}
+
+.club-small-card {
+    position: relative;
+    transition: 200ms;
+}
+
+.club-small-card::after {
+    pointer-events: none;
+    position: absolute;
+    opacity: 0;
+    content: attr(data-name);
+    transition: 200ms;
+    background-color: #1a1e4b;
+    padding: 1rem;
+    top: 3.5rem;
+    z-index: 1;
+    display: block;
+    border-radius: 1rem;
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.club-small-card:hover {
+    transform: scale(1.1);
+}
+
+.club-small-card:hover::after {
+    opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+    .clubs {
+        padding: 1rem;
+    }
+    .club-image {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 1rem;
+    }
+    .club-socials {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .club-image {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 1rem;
+    }
+}

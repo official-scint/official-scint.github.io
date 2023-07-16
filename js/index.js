@@ -15,7 +15,7 @@ fetch("config.json").then(response => response.json()).then(config => {
     document.querySelector(".discord-button").href = config["discord-link"];
     // about us
     for (let i = 0; i < config["about-us"].length; i++) {
-        document.querySelector(".about-us").children[i].innerHTML = config["about-us"][i];
+        document.querySelector(".about-us").children[i].querySelector("p").innerHTML = config["about-us"][i];
     }
     // top clubs
     for (let i = 0; i < config["clubs"]["top"].length; i++) {
@@ -59,3 +59,14 @@ fetch("config.json").then(response => response.json()).then(config => {
         sponsorGroupElement.appendChild(sponsorCardElement);
     }
 });
+
+for (const element of document.querySelectorAll('.title')) {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                element.style.setProperty('--width', '100%');
+                observer.disconnect();
+            }
+        });
+    }).observe(element);
+}

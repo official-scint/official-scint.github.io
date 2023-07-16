@@ -1,0 +1,29 @@
+.about-us {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 3rem;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .about-us {
+        padding: 1rem;
+        flex-direction: column;
+    }
+}
+
+.about-us > section > h2 {
+    text-align: center;
+}
+
+.about-us > section > p {
+    margin: 0;
+}
+
+.about-us > section {
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 1rem;
+    flex: 1;
+}

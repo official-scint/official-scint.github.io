@@ -1,0 +1,21 @@
+.sponsors {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 3rem;
+    gap: 2rem;
+}
+
+.sponsor-card > img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 1rem;
+}
+
+.sponsor-card {
+    transition: 200ms;
+}
+
+.sponsor-card:hover {
+    transform: scale(1.1);
+}

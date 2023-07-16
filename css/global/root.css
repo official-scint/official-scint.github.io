@@ -1,0 +1,19 @@
+:root {
+    --bg-main: #02041F;
+    --bg-secondary: #0E1133;
+    --bg-primary: #5F8AC9;
+    --bg-primary-light: #87a5d3;
+    --bg-primary-opacity-30: #5f89c93f;
+    --font-color: #D9DEED;
+}
+
+html, body {
+    font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei", STXihei, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--font-color);
+    box-sizing: content-box;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}

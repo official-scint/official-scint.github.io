@@ -1,0 +1,39 @@
+.title {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: none;
+    --width: 0%;
+}
+
+.title::before,
+.title::after {
+    transition: 2000ms;
+    content: '';
+    display: inline-block;
+    width: var(--width);
+    height: 2px;
+    position: absolute;
+    background: var(--bg-primary);
+    top: 50%;
+}
+
+.title::before,
+.title::before {
+    margin-left: -2rem;
+    transform: translateX(-100%);
+}
+
+.title::after,
+.title::after {
+    margin-left: 2rem;
+}
+
+@keyframes toLong {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
