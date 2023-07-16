@@ -264,6 +264,7 @@ html, body {
     justify-content: center;
     flex-direction: row;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .club-card {
@@ -286,7 +287,7 @@ html, body {
     position: relative;
 }
 
-.club-school::after {
+/* .club-school::after {
     position: absolute;
     content: "";
     border-bottom: 1px white solid;
@@ -294,7 +295,7 @@ html, body {
     right: 0;
     top: 1.5rem;
     height: 1;
-}
+} */
 
 .club-image {
     width: 6rem;
@@ -302,31 +303,18 @@ html, body {
     border-radius: 1rem;
 }
 
-@media (max-width: 768px) {
-    .clubs {
-        padding: 1rem;
-        padding-bottom: 3rem;
-    }
-    .club-image {
-        width: 5rem;
-        height: 5rem;
-        border-radius: 1rem;
-    }
-}
-
-@media (max-width: 450px) {
-    .club-image {
-        width: 4rem;
-        height: 4rem;
-        border-radius: 1rem;
-    }
-}
-
 .club-info {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.club-info > hr {
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid var(--bg-primary);
+    width: 100%;
 }
 
 .club-info > p {
@@ -386,6 +374,29 @@ html, body {
 
 .club-small-card:hover::after {
     opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+    .clubs {
+        padding: 1rem;
+    }
+    .club-image {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 1rem;
+    }
+    .club-socials {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .club-image {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 1rem;
+    }
 }
 
 /* footer */
