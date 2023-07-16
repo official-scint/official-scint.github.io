@@ -62,10 +62,29 @@ fetch("config.json").then(response => response.json()).then(config => {
 
 // title animation
 for (const element of document.querySelectorAll('.title')) {
-    const observer = new IntersectionObserver((entries, observer) => {
+    new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 element.style.setProperty('--width', '100%');
+                observer.disconnect();
+            }
+        });
+    }).observe(element);
+}
+
+// fade up animation
+for (const element of document.querySelectorAll('.fade-up')) {
+    new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                element.animate([
+                    {opacity: 0, transform: 'translateY(50px)'},
+                    {opacity: 1, transform: 'translateY(0px)'}
+                ], {
+                    duration: 500,
+                    easing: 'ease-in-out',
+                    fill: 'forwards'
+                });
                 observer.disconnect();
             }
         });

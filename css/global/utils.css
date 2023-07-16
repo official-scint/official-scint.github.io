@@ -1,3 +1,7 @@
 .hidden {
     display: none;
 }
+
+.fade-up {
+    opacity: 0;
+}
