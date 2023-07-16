@@ -1,0 +1,97 @@
+{
+    "discord-link": "https://discord.gg/7sgwT3a77Z",
+    "contact-us": {
+        "instagram": "https://www.instagram.com/CCIRSHSNU/",
+        "github": "https://www.instagram.com/ccirs_hsn/",
+        "email": "admin@scint.org"
+    },
+    "about-us" : [
+        "awa",
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia officiis incidunt ea consectetur veritatis voluptate nisi reprehenderit, nemo sunt facere repudiandae eum tempore, facilis commodi fugiat voluptatum eos magni dolore.",
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia officiis incidunt ea consectetur veritatis voluptate nisi reprehenderit, nemo sunt facere repudiandae eum tempore, facilis commodi fugiat voluptatum eos magni dolore."
+    ],
+    "clubs": {
+        "top": [
+            {
+                "name": "資訊研究aa社aw",
+                "school": "XX高中wawa",
+                "image": "assets/clubs/club_1.jpg",
+                "socials": [
+                    {
+                        "name": "instagram",
+                        "url": "https://twitter.com/qwe"
+                    },
+                    {
+                        "name": "website",
+                        "url": "https://www.instagram.com/"
+                    },
+                    {
+                        "name": "discord",
+                        "url": "https://www.instagram.com/"
+                    }
+                ]
+            },
+            {
+                "name": "AAA究aa社aw",
+                "school": "AAAX高中wa",
+                "image": "assets/clubs/ccirs.jpg",
+                "socials": [
+                    {
+                        "name": "facebook",
+                        "url": "https://www.facebook.com/"
+                    },
+                    {
+                        "name": "website",
+                        "url": "https://www.instagram.com/"
+                    },
+                    {
+                        "name": "discord",
+                        "url": "https://www.instagram.com/"
+                    }
+                ]
+            },
+            {
+                "name": "BBBB資究aw",
+                "school": "BBBB中wawa",
+                "image": "assets/clubs/club_1.jpg",
+                "socials": [
+                    {
+                        "name": "website",
+                        "url": "https://www.instagram.com/"
+                    },
+                    {
+                        "name": "discord",
+                        "url": "https://www.instagram.com/"
+                    }
+                ]
+            }
+        ],
+        "other" : [
+            {
+                "name": "YY高中資訊研究社",
+                "image": "assets/clubs/club_1.jpg"
+            },
+            {
+                "name": "YYawawawawaw高中資訊研究社",
+                "image": "assets/clubs/ccirs.jpg"
+            },
+            {
+                "name": "YYawa高中資訊研究社",
+                "image": "assets/clubs/club_1.jpg"
+            },{
+                "name": "YYawawaw高中資訊研究社",
+                "image": "assets/clubs/club_1.jpg"
+            },
+            {
+                "name": "YYawawaw高中資訊研究社",
+                "image": "assets/clubs/club_1.jpg"
+            }
+        ]
+    },
+    "sponsors": [
+        {
+            "image": "assets/sponsors/hackmd.png",
+            "url": "https://hackmd.io/"
+        }
+    ]
+}

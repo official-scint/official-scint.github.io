@@ -8,13 +8,17 @@
     <link type="text/css" rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <script defer src="js/index.js"></script>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <title>SCINT 北台學生灣資訊社群</title>
 </head>
 <body>
     <nav class="navbar">
         <ul>
             <li class="navbar-item"><a href="index.php">首頁</a></li>
-            <a class="navbar-item discord-button" href="member.php">加入 Discord</a>
+            <a target="_blank" class="navbar-item discord-button" href="member.php">Discord</a>
         </ul>
     </nav>
     <div class="banner">
@@ -29,46 +33,72 @@
         <div class="about-us">
             <section>
                 <h2>核心價值</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia officiis incidunt ea consectetur veritatis voluptate nisi reprehenderit, nemo sunt facere repudiandae eum tempore, facilis commodi fugiat voluptatum eos magni dolore.</p>
+                <p>Loading...</p>
             </section>
             <section>
                 <h2>創辦理念</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem enim vero provident amet blanditiis incidunt exercitationem fuga. Optio debitis placeat odio, saepe recusandae qui assumenda est sapiente voluptatibus. Unde, iure.</p>
+                <p>Loading...</p>
             </section>
             <section>
                 <h2>成員組成</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis labore soluta ab, enim veniam eum repudiandae possimus corrupti unde quasi exercitationem omnis doloremque eius ad sit excepturi libero corporis quas.</p>
+                <p>Loading...</p>
             </section>
         </div>
         <h1 class="title">合作社團</h1>
         <div class="clubs">
-            <section>
-                <img class="club-image" src="assets/clubs/club_1.jpg">
-                <div class="club-info">
-                    <p>XX高中｜電腦資訊暨網路科技研究社</p>
-                    <div class="club-socials">
-                        <a href="/"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="/"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="/"><i class="fa-solid fa-globe"></i></a>
+            <div class="clubs-row">
+                <div class="club-card">
+                    <img class="club-image" src="assets/clubs/club_1.jpg">
+                    <div class="club-info">
+                        <p class="club-school">Loading...</p>
+                        <p class="club-name">Loading...</p>
+                        <div class="club-socials">
+                            <a href="/" class="hidden"><i class="fa-solid fa-globe"></i></a>
+                            <a href="/" class="hidden"><i class="fa-brands fa-discord"></i></a>
+                            <a href="/" class="hidden"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="/" class="hidden"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
                     </div>
                 </div>
-            </section>
+                <div class="club-card">
+                    <img class="club-image" src="assets/clubs/club_1.jpg">
+                    <div class="club-info">
+                        <p class="club-school">Loading...</p>
+                        <p class="club-name">Loading...</p>
+                        <div class="club-socials">
+                            <a href="/" class="hidden"><i class="fa-solid fa-globe"></i></a>
+                            <a href="/" class="hidden"><i class="fa-brands fa-discord"></i></a>
+                            <a href="/" class="hidden"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="/" class="hidden"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="club-card">
+                    <img class="club-image" src="assets/clubs/club_1.jpg">
+                    <div class="club-info">
+                        <p class="club-school">Loading...</p>
+                        <p class="club-name">Loading...</p>
+                        <div class="club-socials">
+                            <a href="/" class="hidden"><i class="fa-solid fa-globe"></i></a>
+                            <a href="/" class="hidden"><i class="fa-brands fa-discord"></i></a>
+                            <a href="/" class="hidden"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="/" class="hidden"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="club-avatars"></div>
         </div>
+        <h1 class="title">合作單位</h1>
+        <div class="sponsors"></div>
     </div>
     <footer>
-        <div class="contact">
+        <div class="contact-us">
             <a href="/"><i class="fa-solid fa-envelope"></i></a>
             <a href="/"><i class="fa-brands fa-github"></i></a>
             <a href="/"><i class="fa-brands fa-instagram"></i></a>
         </div>
         <p class="copyright">© 2023 SCINT. All rights reserved.</p>
     </footer>
-    <script>
-        const downArrow = document.querySelector('.down-arrow');
-        const container = document.querySelector('.container');
-        downArrow.addEventListener('click', () => {
-            container.scrollIntoView({behavior: 'smooth'});
-        });
-    </script>
 </body>
 </html>
