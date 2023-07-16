@@ -8,7 +8,7 @@
 
 .title::before,
 .title::after {
-    transition: 2000ms;
+    transition: 2000ms ease-in-out;
     content: '';
     display: inline-block;
     width: var(--width);

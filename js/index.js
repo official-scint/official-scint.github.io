@@ -60,6 +60,7 @@ fetch("config.json").then(response => response.json()).then(config => {
     }
 });
 
+// title animation
 for (const element of document.querySelectorAll('.title')) {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
