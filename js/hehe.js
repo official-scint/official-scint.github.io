@@ -2,6 +2,9 @@ const lightningImage = document.querySelector(".banner-image-middle");
 let isAnimationEnded = true;
 let clickCount = 0;
 const clickCountTarget = 30;
+const temmieSoundCache = new Audio("./assets/wewe.wav");
+temmieSoundCache.volume = 0;
+temmieSoundCache.play();
 
 lightningImage.addEventListener("click", () => {
     if (!isAnimationEnded) return;
