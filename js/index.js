@@ -48,6 +48,14 @@ fetch("config.json").then(response => response.json()).then(config => {
         clubCardElement.innerHTML = `<img class="club-avatar" src="${image}">`;
         clubGroupElement.appendChild(clubCardElement);
     }
+    // history
+    for (let i = 0; i < config["history"].length; i++) {
+        const {title, content, image} = config["history"][i];
+        const historyCardElement = document.querySelector(".timeline").children[i];
+        historyCardElement.querySelector("h2").innerHTML = title;
+        historyCardElement.querySelector("p").innerHTML = content;
+        historyCardElement.querySelector("img").src = image;
+    }
     // sponsors
     const sponsorGroupElement = document.querySelector(".sponsors");
     for (let i = 0; i < config["sponsors"].length; i++) {
@@ -90,3 +98,4 @@ for (const element of document.querySelectorAll('.fade-up')) {
         });
     }).observe(element);
 }
+

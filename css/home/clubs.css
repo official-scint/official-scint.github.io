@@ -25,6 +25,12 @@
     gap: 1rem;
     flex: 1;
     margin: 0;
+    transition: 200ms;
+}
+
+.club-card:hover {
+    background-color: var(--bg-secondary-hover);
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.2);
 }
 
 .club-name, .club-school {

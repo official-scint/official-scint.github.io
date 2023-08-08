@@ -14,8 +14,9 @@
     cursor: pointer;
 }
 
-.banner-content > h2 {
+.banner-content > .banner-title {
     font-weight: normal;
+    font-size: 1.5em;
 }
 
 .banner-content {

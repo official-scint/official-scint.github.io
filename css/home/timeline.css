@@ -1,0 +1,113 @@
+.timeline {
+  --tl-color: #123974;;
+  --tl-width: 16px;
+  --tl-padding: 8px;
+  padding: 3rem 9.5rem;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding: 1rem 0rem;
+    --tl-width: 3px;
+  }
+  .timeline img {
+    display: none;
+  }
+}
+
+.tl-item {
+  --tl-sgn: 1;
+  position: relative;
+  margin: var(--tl-width) 0;
+  padding: var(--tl-padding);
+  box-shadow: 0px var(--tl-width) var(--tl-color);
+}
+
+.tl-item .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  transform: translate(calc((-100% - var(--tl-width) / 2) * var(--tl-sgn)));
+}
+
+.tl-item .img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0px 0 0 var(--tl-width) var(--tl-color);
+  transform: translate(calc((50% + var(--tl-width) / 2) * var(--tl-sgn)));
+  clip-path: inset(
+    calc(-1 * var(--tl-width))
+      calc(
+        (-1 + var(--tl-sgn)) * var(--tl-width) / 2 + (1 + var(--tl-sgn)) * 49% /
+          2
+      )
+      calc(-1 * var(--tl-width))
+      calc(
+        (-1 - var(--tl-sgn)) * var(--tl-width) / 2 + (1 - var(--tl-sgn)) * 49% /
+          2
+      )
+  );
+}
+
+.tl-item .img img {
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.tl-item:nth-child(2n + 1) {
+  text-align: left;
+  --tl-sgn: 1;
+}
+.tl-item:nth-child(2n) {
+  text-align: right;
+  --tl-sgn: -1;
+}
+
+.tl-item:nth-child(2n + 1) .img {
+  left: 0;
+}
+.tl-item:nth-child(2n) .img {
+  right: 0;
+}
+
+.tl-item:first-child .img::before {
+  clip-path: inset(
+    50%
+      calc(
+        (-1 + var(--tl-sgn)) * var(--tl-width) / 2 + (1 + var(--tl-sgn)) * 49% /
+          2
+      )
+      calc(-1 * var(--tl-width))
+      calc(
+        (-1 - var(--tl-sgn)) * var(--tl-width) / 2 + (1 - var(--tl-sgn)) * 49% /
+          2
+      )
+  );
+}
+.tl-item:last-child .img::before {
+  clip-path: inset(
+    calc(-1 * var(--tl-width))
+      calc(
+        (-1 + var(--tl-sgn)) * var(--tl-width) / 2 + (1 + var(--tl-sgn)) * 49% /
+          2
+      )
+      50%
+      calc(
+        (-1 - var(--tl-sgn)) * var(--tl-width) / 2 + (1 - var(--tl-sgn)) * 49% /
+          2
+      )
+  );
+}
+
+.tl-item:last-child {
+  box-shadow: unset;
+}

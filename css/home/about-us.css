@@ -26,4 +26,10 @@
     padding: 1rem;
     border-radius: 1rem;
     flex: 1;
+    transition: 200ms;
+}
+
+.about-us > section:hover {
+    background-color: var(--bg-secondary-hover);
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.2);
 }
