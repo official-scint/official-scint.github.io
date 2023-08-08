@@ -99,3 +99,10 @@ for (const element of document.querySelectorAll('.fade-up')) {
     }).observe(element);
 }
 
+// fake logo
+const fakeLogoWidth = 447;
+const fakeLogoHeight = 78;
+const fakeLogo = document.querySelector('.banner-image-fake');
+// fakeLogo.style.width = `${fakeLogoWidth * 1.1}px`;
+// fakeLogo.style.height = `${fakeLogoHeight * 1.1}px`;
+211

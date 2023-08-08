@@ -31,11 +31,110 @@
 .banner-content > h1 {
     font-size: 4rem;
     text-align: center;
+    animation: title-fade-in 0.8s ease-in-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+.banner-image-fake {
+    --fake-width: 447px;
+    --fake-height: 78px;
+    --left-logo-width: 211px;
+    --middle-logo-width: 151px;
+    --right-logo-width: 82px;
+    --image-scale: 1;
+}
+
+.banner-image-fake > .banner-image-left {
+    width: calc(var(--left-logo-width) * var(--image-scale));
+    animation: fade-left 1s ease-in-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.banner-image-fake > .banner-image-middle {
+    width: calc(var(--middle-logo-width) * var(--image-scale));
+    animation: rotate 1s ease-in-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.banner-image-fake > .banner-image-right {
+    width: calc(var(--right-logo-width) * var(--image-scale));
+    animation: fade-right 1s ease-in-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
 }
 
 @media (max-width: 768px) {
     .banner-image {
         width: 80%;
+    }
+    .banner-image-fake {
+        --image-scale: 0.9;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner-image-fake {
+        --image-scale: 0.8;
+    }
+}
+
+@media (max-width: 500px) {
+    .banner-image-fake {
+        --image-scale: 0.7;
+    }
+}
+
+@media (max-width: 400px) {
+    .banner-image-fake {
+        --image-scale: 0.6;
+    }
+}
+
+@keyframes title-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-right {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 1;
     }
 }
 
