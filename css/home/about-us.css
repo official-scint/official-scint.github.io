@@ -19,6 +19,8 @@
 
 .about-us > section > p {
     margin: 0;
+    line-height: 30px;
+    letter-spacing: 1px;
 }
 
 .about-us > section {
