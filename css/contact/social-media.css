@@ -1,0 +1,23 @@
+.social-media {
+    font-size: 20px;
+    font-weight: bold;
+    list-style-type: none;
+}
+
+.social-media li i {
+    margin-right: 1rem;
+}
+
+.social-media li {
+    margin: 1.5rem;
+    transition: transform 200ms;
+}
+
+.social-media a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+.social-media li:hover {
+    transform: scale(1.1);
+}
