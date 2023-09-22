@@ -9,27 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <script defer src="js/index.js"></script>
-    <script defer src="js/hehe.js"></script>
+    <script defer src="js/home.js"></script>
+    <script defer src="js/global.js"></script>
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <title>SCINT 北臺灣學生資訊社群</title>
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li class="navbar-item"><a href="/">首頁</a></li>
-            <li class="navbar-item"><a href="/">活動</a></li>
-            <li class="navbar-item"><a href="/">品牌標示</a></li>
-            <li class="navbar-item"><a href="/contact/">聯絡我們</a></li>
-            <a target="_blank" class="navbar-item discord-button" href="/">
-                <i class="fa-brands fa-discord"></i>Discord
-            </a>
-        </ul>
-    </nav>
+    <template id="navbar"></template>
     <div class="banner">
         <div class="banner-content">
-            <!-- <img class="banner-image" src="assets/logo.png"> -->
             <div class="banner-image-fake">
                 <img class="banner-image-left" src="assets/logo-left.png">
                 <img class="banner-image-middle" src="assets/logo-middle.png">
@@ -144,15 +134,6 @@
         <h1 class="title">合作單位</h1>
         <div class="fade-up sponsors"></div>
     </div>
-    <footer>
-        <div class="contact-us">
-            <a target="_blank" href="https://www.facebook.com/scint.tw/"><i class="fab fa-facebook-square"></i></a>
-            <a target="_blank" href="https://www.instagram.com/scint.tw/"><i class="fa-brands fa-instagram"></i></a>
-            <a target="_blank" href="https://discord.scint.org/"><i class="fab fa-discord"></i></a>
-            <a target="_blank" href="mailto:contact@scint.org"><i class="fas fa-envelope"></i></a>
-            <a target="_blank" href="https://github.com/official-scint"><i class="fa-brands fa-github"></i></a>
-        </div>
-        <p class="copyright">© 2023 SCINT. All rights reserved.</p>
-    </footer>
+    <template id="footer"></template>
 </body>
 </html>
