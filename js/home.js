@@ -7,12 +7,6 @@ downArrow.addEventListener('click', () => {
 
 // dynamic content
 fetch("config.json").then(response => response.json()).then(config => {
-    // contact us
-    document.querySelector(".contact-us").querySelector(".fa-envelope").parentElement.href = `mailto:${config["contact-us"]["email"]}`;
-    document.querySelector(".contact-us").querySelector(".fa-instagram").parentElement.href = config["contact-us"]["instagram"];
-    document.querySelector(".contact-us").querySelector(".fa-github").parentElement.href = config["contact-us"]["github"];
-    // discord link
-    document.querySelector(".discord-button").href = config["discord-link"];
     // about us
     for (let i = 0; i < config["about-us"].length; i++) {
         document.querySelector(".about-us").children[i].querySelector("p").innerHTML = config["about-us"][i];
@@ -68,18 +62,6 @@ fetch("config.json").then(response => response.json()).then(config => {
     }
 });
 
-// title animation
-for (const element of document.querySelectorAll('.title')) {
-    new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                element.style.setProperty('--width', '100%');
-                observer.disconnect();
-            }
-        });
-    }).observe(element);
-}
-
 // fade up animation
 for (const element of document.querySelectorAll('.fade-up')) {
     new IntersectionObserver((entries, observer) => {
@@ -103,6 +85,3 @@ for (const element of document.querySelectorAll('.fade-up')) {
 const fakeLogoWidth = 447;
 const fakeLogoHeight = 78;
 const fakeLogo = document.querySelector('.banner-image-fake');
-// fakeLogo.style.width = `${fakeLogoWidth * 1.1}px`;
-// fakeLogo.style.height = `${fakeLogoHeight * 1.1}px`;
-211

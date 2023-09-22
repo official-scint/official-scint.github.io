@@ -6,6 +6,10 @@
     --width: 0%;
 }
 
+.title + p {
+    margin: 0 5rem;
+}
+
 .title::before,
 .title::after {
     transition: 2000ms ease-in-out;

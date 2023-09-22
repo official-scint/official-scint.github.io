@@ -1,0 +1,11 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.logo img {
+    border: 1px solid #2c4a77;
+    border-radius: 1rem;
+    padding: 2rem;
+}
