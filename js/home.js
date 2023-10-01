@@ -53,10 +53,9 @@ fetch("config.json").then(response => response.json()).then(config => {
     }
 
     function clubCardsSlider() {
-        let currentIndex = 0;
+        let currentIndex = 3;
         let offset = 3;
         let sliderSize = config["clubs"].length;
-        let updateTime = 5000;
         function render() {
             const indexMod = currentIndex % sliderSize;
             // fade in
@@ -111,12 +110,34 @@ fetch("config.json").then(response => response.json()).then(config => {
             prev: () => {
                 currentIndex -= offset;
                 render();
+            },
+            init: () => {
+                for (let i = 0; i < 3; i++) {
+                    const {name, school, image, socials} = config["clubs"][i];
+                    const clubCardElement = document.querySelector(".clubs-row").children[i];
+                    clubCardElement.querySelector(".club-name").innerHTML = name;
+                    clubCardElement.querySelector(".club-school").innerHTML = school;
+                    clubCardElement.querySelector(".club-image").src = image;
+                    for (let j = 0; j < socials.length; j++) {
+                        const social = socials[j];
+                        const socialName = social["name"];
+                        const socialLink = social["url"];
+                        const socialElement = clubCardElement.querySelector({
+                            "facebook": ".fa-facebook",
+                            "instagram": ".fa-instagram",
+                            "website": ".fa-globe",
+                            "discord": ".fa-discord",
+                        } [socialName]);
+                        socialElement.parentElement.classList.remove("hidden");
+                        socialElement.parentElement.href = socialLink;
+                    }
+                }
             }
         }
     }
 
     const clubSlider = clubCardsSlider();
-
+    clubSlider.init();
     setInterval(() => {
         clubSlider.next();        
     }, 5000);
