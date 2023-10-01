@@ -219,6 +219,10 @@
         {
             "image": "assets/sponsors/hackmd.png",
             "url": "https://hackmd.io/"
+        },
+        {
+            "image": "assets/sponsors/naf.png",
+            "url": "https://nafstore.net/"
         }
     ]
 }
