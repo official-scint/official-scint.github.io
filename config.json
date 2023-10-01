@@ -4,84 +4,52 @@
         "我們將整合資源於規畫舉辦線上交流講座、練習賽與社團交流活動。<br><br><br>讓學生們共同成長，並且降低資訊領域入門門檻以及增進各社團合作與交流。",
         "目前我們的成員主要來自北部的高中職社團，以及中南部地區的資訊社群。<br><br><br>他們不同的背景豐富了我們社群的組成，共同創造著熱鬧而具有活力的氛圍。"
     ],
-    "clubs": {
-        "top": [
-            {
-                "name": "資訊研究aa社aw",
-                "school": "XX高中wawa",
-                "image": "assets/clubs/club_1.jpg",
-                "socials": [
-                    {
-                        "name": "instagram",
-                        "url": "https://twitter.com/qwe"
-                    },
-                    {
-                        "name": "website",
-                        "url": "https://www.instagram.com/"
-                    },
-                    {
-                        "name": "discord",
-                        "url": "https://www.instagram.com/"
-                    }
-                ]
-            },
-            {
-                "name": "AAA究aa社aw",
-                "school": "AAAX高中wa",
-                "image": "assets/clubs/ccirs.jpg",
-                "socials": [
-                    {
-                        "name": "facebook",
-                        "url": "https://www.facebook.com/"
-                    },
-                    {
-                        "name": "website",
-                        "url": "https://www.instagram.com/"
-                    },
-                    {
-                        "name": "discord",
-                        "url": "https://www.instagram.com/"
-                    }
-                ]
-            },
-            {
-                "name": "BBBB資究aw",
-                "school": "BBBB中wawa",
-                "image": "assets/clubs/club_1.jpg",
-                "socials": [
-                    {
-                        "name": "website",
-                        "url": "https://www.instagram.com/"
-                    },
-                    {
-                        "name": "discord",
-                        "url": "https://www.instagram.com/"
-                    }
-                ]
-            }
-        ],
-        "other" : [
-            {
-                "name": "YY高中資訊研究社",
-                "image": "assets/clubs/club_1.jpg"
-            },
-            {
-                "name": "YYawawawawaw高中資訊研究社",
-                "image": "assets/clubs/ccirs.jpg"
-            },
-            {
-                "name": "YYawa高中資訊研究社",
-                "image": "assets/clubs/club_1.jpg"
-            },{
-                "name": "YYawawaw高中資訊研究社",
-                "image": "assets/clubs/club_1.jpg"
-            },
-            {
-                "name": "YYawawaw高中資訊研究社",
-                "image": "assets/clubs/club_1.jpg"
-            }
-        ]
-    },
+    "clubs": [
+        {
+            "name": "資研社",
+            "school": "北市立中山女高",
+            "image": "assets/clubs/club1.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/zsisc30th/"
+                }
+            ]
+        },
+        {
+            "name": "資訊研習社",
+            "school": "北市立中崙高中",
+            "image": "assets/clubs/club2.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/zlcsc_21st/"
+                }
+            ]
+        },
+        {
+            "name": "資訊研習社",
+            "school": "北市立中正高中",
+            "image": "assets/clubs/club3.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/zzis_24th/"
+                }
+            ]
+        },
+        {
+            "name": "資訊社",
+            "school": "北市立建國中學",
+            "image": "assets/clubs/club4.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/infor_36th/"
+                }
+            ]
+        }
+    ],
     "history": [
         {
             "title": "2022 / 02 - 社群創立",
