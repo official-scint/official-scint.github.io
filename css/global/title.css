@@ -4,6 +4,7 @@
     overflow: hidden;
     border-bottom: none;
     --width: 0%;
+    margin: 0;
 }
 
 .title + p {
