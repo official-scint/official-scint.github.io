@@ -90,10 +90,11 @@
     gap: 0.5rem;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .club-avatar {
-    width: 3rem;
+    width: 2.8rem;
     border-radius: 10rem;
 }
 

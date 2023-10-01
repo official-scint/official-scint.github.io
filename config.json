@@ -48,6 +48,149 @@
                     "url": "https://www.instagram.com/infor_36th/"
                 }
             ]
+        },
+        {
+            "name": "資研社",
+            "school": "臺北市立成淵高中",
+            "image": "assets/clubs/club5.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/cyic_27th/"
+                }
+            ]
+        },
+        {
+            "name": "電子計算機研習社",
+            "school": "臺北市立成功高中",
+            "image": "assets/clubs/club7.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/ckcsc36th_diary/"
+                }
+            ]
+        },
+        {
+            "name": "程式設計社",
+            "school": "臺北市立明倫高中",
+            "image": "assets/clubs/club6.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/mlcp_31st/"
+                }
+            ]
+        },
+        {
+            "name": "資研社",
+            "school": "臺北市立松山高中",
+            "image": "assets/clubs/club8.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/ssinrc_34th_/"
+                }
+            ]
+        },
+        {
+            "name": "電腦研究社",
+            "school": "臺北市立大安高工",
+            "image": "assets/clubs/club11.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/dacsc25th/"
+                }
+            ]
+        },
+        {
+            "name": "資訊社",
+            "school": "國立政大附屬高中",
+            "image": "assets/clubs/club10.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/zfcsc_18th"
+                }
+            ]
+        },
+        {
+            "name": "資訊研習社",
+            "school": "新北市立新北高中",
+            "image": "assets/clubs/club9.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/ntir_4th/"
+                }
+            ]
+        },
+        {
+            "name": "資訊社",
+            "school": "新北市立板橋高中",
+            "image": "assets/clubs/club12.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/pcic35/"
+                }
+            ]
+        },
+        {
+            "name": "程研社",
+            "school": "新北市立新莊高中",
+            "image": "assets/clubs/club13.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/hcpc.8th"
+                }
+            ]
+        },
+        {
+            "name": "資研社",
+            "school": "新北市立海山高中",
+            "image": "assets/clubs/club14.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/hspc_4/"
+                }
+            ]
+        },
+        {
+            "name": "資研社",
+            "school": "新北市立中和高中",
+            "image": "assets/clubs/club15.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/chisc_5th/"
+                }
+            ]
+        },
+        {
+            "name": "資訊研究社",
+            "school": "臺北市立內湖高中",
+            "image": "assets/clubs/club16.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/nhisc._.33rd/"
+                }
+            ]
+        },
+        {
+            "name": "資研社",
+            "school": "桃園市立武陵高中",
+            "image": "assets/clubs/club17.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/wlcsc_28/"
+                }
+            ]
         }
     ],
     "history": [
