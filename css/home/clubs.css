@@ -94,13 +94,16 @@
 }
 
 .club-avatar {
+    position: relative;
     width: 2.8rem;
     border-radius: 10rem;
+    z-index: -1;
 }
 
 .club-small-card {
     position: relative;
     transition: 200ms;
+    /* z-index: 1; */
 }
 
 .club-small-card::after {
@@ -112,7 +115,7 @@
     background-color: #1a1e4b;
     padding: 1rem;
     top: 3.5rem;
-    z-index: 1;
+    z-index: 100;
     display: block;
     border-radius: 1rem;
     white-space: nowrap;
