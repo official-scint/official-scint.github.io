@@ -1,3 +1,17 @@
+.navbar {
+    -webkit-backdrop-filter:blur(0.5rem);
+    background-color:#5f6771ad;
+    box-shadow:0 0 5px #0000003d;
+    opacity: 0.8;
+    backdrop-filter: blur(1rem);
+    left:0;
+    padding:0 .4rem;
+    position: fixed;
+    right:0;
+    top:0;
+    z-index:5;
+}
+
 .navbar > ul {
     font-weight: bold;
     list-style: none;
@@ -10,7 +24,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 6;
     overflow-x: scroll;
 }
 
@@ -25,7 +39,7 @@
 
 .discord-button {
     position: relative;
-    background-color: #3942A8;
+    background-color: #434caf;
     color: var(--font-color);
     padding: 0.5rem 3rem;
     border-radius: 0.5rem;
@@ -47,20 +61,8 @@
     margin-right: 0.7rem;
 }
 
-.discord-button::before {
-    content: "";
-    border-radius: 0.5rem;
-    border: 1px solid #AFA2A2;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    transform: scaleY(0.85) scaleX(0.96);
-}
-
 .discord-button:hover {
-    background-color: #4752c4;
+    background-color: #525bbd;
 }
 
 .discord-button {

@@ -6,6 +6,10 @@ footer {
     flex-direction: column;
     padding: 1rem;
     padding-bottom: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .contact-us {

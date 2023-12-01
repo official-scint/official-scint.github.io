@@ -20,28 +20,6 @@ fetch("config.json").then(response => response.json()).then(config => {
         clubCardElement.innerHTML = `<img class="club-avatar" src="${image}">`;
         clubGroupElement.appendChild(clubCardElement);
     }
-    // history
-    for (const {title, content, image} of config["history"]) {
-        break;
-        const historyCardElement = document.createElement("div");
-        historyCardElement.classList.add("tl-item");
-
-        const imageDiv = document.createElement("div");
-        imageDiv.classList.add("img");
-        const imageElement = document.createElement("img");
-        imageElement.src = image;
-        const historyTitle = document.createElement("h2");
-        historyTitle.innerText = title;
-        const historyContent = document.createElement("p");
-        historyContent.innerText = content;
-        
-        imageDiv.appendChild(imageElement);
-        historyCardElement.appendChild(imageDiv);
-        historyCardElement.appendChild(historyTitle);
-        historyCardElement.appendChild(historyContent);
-
-        document.querySelector(".timeline").appendChild(historyCardElement);
-    }
     // sponsors
     const sponsorGroupElement = document.querySelector(".sponsors");
     for (const {image, url} of config["sponsors"]) {
@@ -161,6 +139,46 @@ for (const element of document.querySelectorAll('.fade-up')) {
         });
     }).observe(element);
 }
+
+const events_container = document.querySelector('.events-container');
+
+function htmlStringToElement(html) {
+    const template = document.createElement('template');
+    html = html.trim();
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
+
+// load events
+fetch("http://server.ouoc.net:20022/events")
+    .then(response => response.json())
+    .then(events => {
+        for (const event of events) {
+            const description = event.description;
+            const start_time = new Date(event.scheduled_start_time);
+            const image_url = `https://cdn.discordapp.com/guild-events/1177270339693203516/${event.image}?size=2048`;
+            const title = event.name;
+            const add_to_calendar_url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${title.replace("#", "")}&dates=${start_time.toISOString().replace(/[-:]/g, "").replace(/\.\d\d\d/g, "")}/${start_time.toISOString().replace(/[-:]/g, "").replace(/\.\d\d\d/g, "")}&details=${description.replace("#", "")}&sf=true&output=xml`;
+            const event_card = htmlStringToElement(`
+            <div class="event-card">
+                <div class="event-card-left">
+                    <div class="event-details">
+                        <h2 class="event-title">${title}</h2>
+                        <pre class="event-description">${description}</pre>
+                    </div>
+                    <div class="event-buttons">
+                        <a target="_blank" href="${add_to_calendar_url}" class="event-button">添加行事曆</a>
+                    </div>
+                </div>
+                <div class="event-card-right">
+                    <img class="event-image"
+                        src="${image_url}" />
+                </div>
+            </div>
+            `);
+            events_container.appendChild(event_card);
+        }
+    });
 
 // fake logo
 const fakeLogoWidth = 447;
