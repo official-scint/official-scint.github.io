@@ -150,7 +150,7 @@ function htmlStringToElement(html) {
 }
 
 // load events
-fetch("http://server.ouoc.net:20022/events")
+fetch("https://server.ouoc.net:20022/events")
     .then(response => response.json())
     .then(events => {
         for (const event of events) {
