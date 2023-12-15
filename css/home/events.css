@@ -8,6 +8,16 @@
     gap: 2rem;
 }
 
+.events-container:empty::after {
+    content: "近期沒有即將舉行的活動 TAT";
+    color: #e0e2e9;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #0E1133;
+    transition: 200ms;
+}
+
 .event-card {
     padding: 1rem;
     border-radius: 1rem;
