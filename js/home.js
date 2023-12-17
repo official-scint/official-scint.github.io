@@ -156,7 +156,7 @@ fetch("https://api.scint.org/events")
         for (const event of events) {
             const description = event.description;
             const start_time = new Date(event.scheduled_start_time);
-            const image_url = `https://cdn.discordapp.com/guild-events/1177270339693203516/${event.image}?size=2048`;
+            const image_url = `https://cdn.discordapp.com/guild-events/${event.id}/${event.image}?size=2048`;
             const title = event.name;
             const add_to_calendar_url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${title.replace("#", "")}&dates=${start_time.toISOString().replace(/[-:]/g, "").replace(/\.\d\d\d/g, "")}/${start_time.toISOString().replace(/[-:]/g, "").replace(/\.\d\d\d/g, "")}&details=${description.replace("#", "")}&sf=true&output=xml`;
             const event_card = htmlStringToElement(`
