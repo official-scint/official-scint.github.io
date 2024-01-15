@@ -223,6 +223,10 @@
         {
             "image": "assets/sponsors/naf.png",
             "url": "https://nafstore.net/"
+        },
+        {
+            "image": "https://cdn-file.ncse.tw/ncse_logo_full.png",
+            "url": "https://ncse.tw/free-service-sponsor.html"
         }
     ]
 }
