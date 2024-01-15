@@ -1,0 +1,24 @@
+.btn {
+    background-color: transparent;
+    border: 2px solid #2F3E7F;
+    border-radius: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background-color: #2F3E7F;
+}
+
+.button-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.button-section .btn {
+    margin: 0 auto;
+}
