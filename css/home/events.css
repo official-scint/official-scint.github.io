@@ -29,11 +29,6 @@
     transition: 200ms;
 }
 
-.event-card:hover {
-    background-color: var(--bg-secondary-hover);
-    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.2);
-}
-
 .event-card-left {
     display: flex;
     flex-direction: column;
