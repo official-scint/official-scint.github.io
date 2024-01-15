@@ -13,7 +13,6 @@
     justify-content: center;
     flex-direction: row;
     gap: 2rem;
-    flex-wrap: wrap;
 }
 
 .club-card {
@@ -103,7 +102,6 @@
 .club-small-card {
     position: relative;
     transition: 200ms;
-    /* z-index: 1; */
 }
 
 .club-small-card::after {
@@ -143,6 +141,12 @@
     }
     .club-socials {
         display: none;
+    }
+}
+
+@media (max-width: 1080px) {
+    .clubs-row {
+        flex-direction: column;
     }
 }
 
