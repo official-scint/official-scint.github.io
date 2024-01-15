@@ -6,6 +6,7 @@
 @import "./navbar.css";
 @import "./footer.css";
 @import "./button.css";
+@import "./icons.css";
 
 body {
     box-sizing: border-box;

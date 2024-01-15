@@ -1,0 +1,58 @@
+.plans-contaniner {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .plans-contaniner {
+        padding: 1rem;
+    }
+}
+
+.plans-contaniner .plan-item {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    background-color: var(--bg-secondary-hover);
+    border-radius: 1rem;
+    transition: 200ms;
+}
+
+.plans-contaniner .plan-item p {
+    margin: 0;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.plan-status-pending {
+    border: 1px solid rgb(139, 139, 0);
+    background-color: rgba(139, 118, 0, 0.521);
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    min-width: 56px;
+}
+
+.plan-status-active {
+    border: 1px solid rgb(0, 128, 0);
+    background-color: rgba(0, 128, 0, 0.521);
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    min-width: 56px;
+}
+
+.plan-status-expired {
+    border: 1px solid rgb(128, 0, 0);
+    background-color: rgba(128, 0, 0, 0.521);
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    min-width: 56px;
+}
