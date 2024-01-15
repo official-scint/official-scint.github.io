@@ -4,6 +4,7 @@
     flex-direction: row;
     padding: 3rem;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .sponsor-card > img {
