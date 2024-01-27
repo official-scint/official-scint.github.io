@@ -202,6 +202,17 @@
                     "url": "https://www.instagram.com/ltivs_info"
                 }
             ]
+        },
+        {
+            "name": "程式研究社",
+            "school": "臺北市私立東山高級中學",
+            "image": "assets/clubs/club19.jpg",
+            "socials": [
+                {
+                    "name": "instagram",
+                    "url": "https://www.instagram.com/dscs_2nd/"
+                }
+            ]
         }
     ],
     "history": [
