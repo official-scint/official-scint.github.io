@@ -7,11 +7,8 @@ downArrow.addEventListener("click", () => {
 
 // the function will be called after all components are loaded
 function onMounted() {
-  console.log("mounted");
-  console.log(document.querySelectorAll(".navbar-item > a"));
   document.querySelectorAll(".navbar-item > a").forEach((element) => {
     element.addEventListener("click", (event) => {
-        console.log(event);
         const target = event.target;
         const targetId = target.getAttribute("href").substring(1);
         const targetElement = document.getElementById(targetId);

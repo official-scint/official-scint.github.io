@@ -2,7 +2,6 @@ const templates = document.querySelectorAll("template");
 const depth = location.href.replace("//", "").split("/").length - 2;
 
 const fetchComponents = [...templates].map(async (template) => {
-    console.log(template);
     const templateID = template.id;
     const response = await fetch(
       `${"../".repeat(depth)}/components/${templateID}.html`
