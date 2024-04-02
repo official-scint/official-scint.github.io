@@ -9,16 +9,16 @@
 @import "./icons.css";
 
 body {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    overflow-y: overlay;
-    font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei", STXihei, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #e0e2e9;
-    min-height: 100vh;
-    position: relative;
-    padding-bottom: 7rem;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: overlay;
+  font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei", STXihei, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #e0e2e9;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 7rem;
+}

@@ -1,265 +1,243 @@
 {
-    "about-us": [
-        "我們的目標是建立一個致力於平衡推廣資訊領域學習資源，同時提供優質共學環境的組織。<br><br>我們相信透過社群影響力，能夠為學習者們提供更加多元且互助的學習經驗。",
-        "我們將整合資源於規畫舉辦線上交流講座、練習賽與社團交流活動。<br><br><br>讓學生們共同成長，並且降低資訊領域入門門檻以及增進各社團合作與交流。",
-        "目前我們的成員主要來自北部的高中職社團，以及中南部地區的資訊社群。<br><br><br>他們不同的背景豐富了我們社群的組成，共同創造著熱鬧而具有活力的氛圍。"
-    ],
-    "clubs": [
+  "about-us": [
+    "我們的目標是建立一個致力於平衡推廣資訊領域學習資源，同時提供優質共學環境的組織。<br><br>我們相信透過社群影響力，能夠為學習者們提供更加多元且互助的學習經驗。",
+    "我們將整合資源於規畫舉辦線上交流講座、練習賽與社團交流活動。<br><br><br>讓學生們共同成長，並且降低資訊領域入門門檻以及增進各社團合作與交流。",
+    "目前我們的成員主要來自北部的高中職社團，以及中南部地區的資訊社群。<br><br><br>他們不同的背景豐富了我們社群的組成，共同創造著熱鬧而具有活力的氛圍。"
+  ],
+  "clubs": [
+    {
+      "name": "資研社",
+      "school": "北市立中山女高",
+      "image": "assets/clubs/club1.jpg",
+      "socials": [
         {
-            "name": "資研社",
-            "school": "北市立中山女高",
-            "image": "assets/clubs/club1.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/zsisc30th/"
-                }
-            ]
-        },
-        {
-            "name": "資訊研習社",
-            "school": "北市立中崙高中",
-            "image": "assets/clubs/club2.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/zlcsc_21st/"
-                }
-            ]
-        },
-        {
-            "name": "資訊研習社",
-            "school": "北市立中正高中",
-            "image": "assets/clubs/club3.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/zzis_24th/"
-                }
-            ]
-        },
-        {
-            "name": "資訊社",
-            "school": "北市立建國中學",
-            "image": "assets/clubs/club4.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/infor_36th/"
-                }
-            ]
-        },
-        {
-            "name": "資研社",
-            "school": "臺北市立成淵高中",
-            "image": "assets/clubs/club5.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/cyic_27th/"
-                }
-            ]
-        },
-        {
-            "name": "電子計算機研習社",
-            "school": "臺北市立成功高中",
-            "image": "assets/clubs/club7.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/ckcsc36th_diary/"
-                }
-            ]
-        },
-        {
-            "name": "程式設計社",
-            "school": "臺北市立明倫高中",
-            "image": "assets/clubs/club6.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/mlcp_31st/"
-                }
-            ]
-        },
-        {
-            "name": "資研社",
-            "school": "臺北市立松山高中",
-            "image": "assets/clubs/club8.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/ssinrc_34th_/"
-                }
-            ]
-        },
-        {
-            "name": "電腦研究社",
-            "school": "臺北市立大安高工",
-            "image": "assets/clubs/club11.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/dacsc25th/"
-                }
-            ]
-        },
-        {
-            "name": "資訊社",
-            "school": "國立政大附屬高中",
-            "image": "assets/clubs/club9.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/zfcsc_18th"
-                }
-            ]
-        },
-        {
-            "name": "資訊研習社",
-            "school": "新北市立新北高中",
-            "image": "assets/clubs/club10.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/ntir_4th/"
-                }
-            ]
-        },
-        {
-            "name": "資訊社",
-            "school": "新北市立板橋高中",
-            "image": "assets/clubs/club12.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/pcic35/"
-                }
-            ]
-        },
-        {
-            "name": "程研社",
-            "school": "新北市立新莊高中",
-            "image": "assets/clubs/club13.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/hcpc.8th"
-                }
-            ]
-        },
-        {
-            "name": "資研社",
-            "school": "新北市立海山高中",
-            "image": "assets/clubs/club14.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/hspc_4/"
-                }
-            ]
-        },
-        {
-            "name": "資研社",
-            "school": "新北市立中和高中",
-            "image": "assets/clubs/club15.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/chisc_5th/"
-                }
-            ]
-        },
-        {
-            "name": "資訊研究社",
-            "school": "臺北市立內湖高中",
-            "image": "assets/clubs/club16.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/nhisc._.33rd/"
-                }
-            ]
-        },
-        {
-            "name": "資研社",
-            "school": "桃園市立武陵高中",
-            "image": "assets/clubs/club17.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/wlcsc_28/"
-                }
-            ]
-        },
-        {
-            "name": "資訊研究社",
-            "school": "國立羅東高工",
-            "image": "assets/clubs/club18.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/ltivs_info"
-                }
-            ]
-        },
-        {
-            "name": "資訊培訓",
-            "school": "國立中央大學附設中壢高中",
-            "image": "assets/clubs/club19.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/clcp_4th/"
-                }
-            ]
-        },
-        {
-            "name": "程式研究社",
-            "school": "臺北市私立東山高級中學",
-            "image": "assets/clubs/club20.jpg",
-            "socials": [
-                {
-                    "name": "instagram",
-                    "url": "https://www.instagram.com/dscs_2nd/"
-                }
-            ]
+          "name": "instagram",
+          "url": "https://www.instagram.com/zsisc30th/"
         }
-    ],
-    "history": [
+      ]
+    },
+    {
+      "name": "資訊研習社",
+      "school": "北市立中崙高中",
+      "image": "assets/clubs/club2.jpg",
+      "socials": [
         {
-            "title": "2022 / 02 - 社群創立",
-            "content": "了之起本少大文學去，好性地較，公吸往地的也到力場高是情結可影量，行應二沒洲吃，如這情布立政兒風不獎法光初時樓來片座道麼走和企來魚目後要？義現清天人？",
-            "image": "assets/history/1.png"
-        },
-        {
-            "title": "2022 - 社群創立",
-            "content": "了之起本少大文學去AWA，好性地較，公吸往地的也到力場高是情結可影量，行應二沒洲吃，如這情布立政兒風不獎法光初時樓來片座道麼走和企來魚目後要？義現清天人？",
-            "image": "assets/history/1.png"
-        },
-        {
-            "title": "2022 - 社群創立",
-            "content": "了之起本少大文學去，好性地較，公吸往地的也到力場高是情結可影量，行應二沒洲吃，如這情布立政兒風不獎法光初時樓來片座道麼走和企來魚目後要？義現清天人？",
-            "image": "assets/history/1.png"
-        },
-        {
-            "title": "2022 - 社群創立",
-            "content": "了之起本少大文學去，好性地較，公吸往地的也到力場高是情結可影量，行應二沒洲吃，如這情布立政兒風不獎法光初時樓來片座道麼走和企來魚目後要？義現清天人？",
-            "image": "assets/history/1.png"
+          "name": "instagram",
+          "url": "https://www.instagram.com/zlcsc_21st/"
         }
-    ],
-    "sponsors": [
+      ]
+    },
+    {
+      "name": "資訊研習社",
+      "school": "北市立中正高中",
+      "image": "assets/clubs/club3.jpg",
+      "socials": [
         {
-            "image": "assets/sponsors/hackmd.png",
-            "url": "https://hackmd.io/"
-        },
-        {
-            "image": "assets/sponsors/naf.png",
-            "url": "https://nafstore.net/"
-        },
-        {
-            "image": "https://cdn-file.ncse.tw/ncse_logo_full.png",
-            "url": "https://ncse.tw/free-service-sponsor.html"
+          "name": "instagram",
+          "url": "https://www.instagram.com/zzis_24th/"
         }
-    ]
+      ]
+    },
+    {
+      "name": "資訊社",
+      "school": "北市立建國中學",
+      "image": "assets/clubs/club4.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/infor_36th/"
+        }
+      ]
+    },
+    {
+      "name": "資研社",
+      "school": "臺北市立成淵高中",
+      "image": "assets/clubs/club5.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/cyic_27th/"
+        }
+      ]
+    },
+    {
+      "name": "電子計算機研習社",
+      "school": "臺北市立成功高中",
+      "image": "assets/clubs/club7.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/ckcsc36th_diary/"
+        }
+      ]
+    },
+    {
+      "name": "程式設計社",
+      "school": "臺北市立明倫高中",
+      "image": "assets/clubs/club6.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/mlcp_31st/"
+        }
+      ]
+    },
+    {
+      "name": "資研社",
+      "school": "臺北市立松山高中",
+      "image": "assets/clubs/club8.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/ssinrc_34th_/"
+        }
+      ]
+    },
+    {
+      "name": "電腦研究社",
+      "school": "臺北市立大安高工",
+      "image": "assets/clubs/club11.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/dacsc25th/"
+        }
+      ]
+    },
+    {
+      "name": "資訊社",
+      "school": "國立政大附屬高中",
+      "image": "assets/clubs/club9.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/zfcsc_18th"
+        }
+      ]
+    },
+    {
+      "name": "資訊研習社",
+      "school": "新北市立新北高中",
+      "image": "assets/clubs/club10.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/ntir_4th/"
+        }
+      ]
+    },
+    {
+      "name": "資訊社",
+      "school": "新北市立板橋高中",
+      "image": "assets/clubs/club12.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/pcic35/"
+        }
+      ]
+    },
+    {
+      "name": "程研社",
+      "school": "新北市立新莊高中",
+      "image": "assets/clubs/club13.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/hcpc.8th"
+        }
+      ]
+    },
+    {
+      "name": "資研社",
+      "school": "新北市立海山高中",
+      "image": "assets/clubs/club14.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/hspc_4/"
+        }
+      ]
+    },
+    {
+      "name": "資研社",
+      "school": "新北市立中和高中",
+      "image": "assets/clubs/club15.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/chisc_5th/"
+        }
+      ]
+    },
+    {
+      "name": "資訊研究社",
+      "school": "臺北市立內湖高中",
+      "image": "assets/clubs/club16.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/nhisc._.33rd/"
+        }
+      ]
+    },
+    {
+      "name": "資研社",
+      "school": "桃園市立武陵高中",
+      "image": "assets/clubs/club17.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/wlcsc_28/"
+        }
+      ]
+    },
+    {
+      "name": "資訊研究社",
+      "school": "國立羅東高工",
+      "image": "assets/clubs/club18.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/ltivs_info"
+        }
+      ]
+    },
+    {
+      "name": "資訊培訓",
+      "school": "國立中央大學附設中壢高中",
+      "image": "assets/clubs/club19.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/clcp_4th/"
+        }
+      ]
+    },
+    {
+      "name": "程式研究社",
+      "school": "臺北市私立東山高級中學",
+      "image": "assets/clubs/club20.jpg",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/dscs_2nd/"
+        }
+      ]
+    }
+  ],
+  "sponsors": [
+    {
+      "image": "assets/sponsors/hackmd.png",
+      "url": "https://hackmd.io/"
+    },
+    {
+      "image": "assets/sponsors/naf.png",
+      "url": "https://nafstore.net/"
+    },
+    {
+      "image": "https://cdn-file.ncse.tw/ncse_logo_full.png",
+      "url": "https://ncse.tw/free-service-sponsor.html"
+    }
+  ]
 }
