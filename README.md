@@ -2,6 +2,7 @@
 ## 簡介
 
 這是 SCINT 官方網站的原始碼，使用原生 HTML、CSS、JavaScript 開發
+
 https://scint-tw.github.io/
 
 ## `config.json` 配置說明
