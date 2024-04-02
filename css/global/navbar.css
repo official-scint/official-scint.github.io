@@ -47,6 +47,12 @@
     margin-bottom: -0.5rem ;
     margin-right: -0.5rem;
     display: flex;
+    vertical-align: middle;
+    color: #fff;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     --message: "Hey, you!";
 }
 
@@ -54,10 +60,6 @@
     .discord-button {
         display: none;
     }
-}
-
-.discord-button > i {
-    margin-right: 0.7rem;
 }
 
 .discord-button:hover > i {
@@ -82,39 +84,35 @@
     white-space: nowrap;
 }
 
+.fa-discord {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .discord-button:hover::before {
     opacity: 1;
     transform: translateX(-110%) translateY(-30%);
-}
-
-.discord-button > * {
-    transform: translateY(0.25rem);
 }
 
 .discord-button:hover {
     background-color: #525bbd;
 }
 
-.discord-button {
-    vertical-align: middle;
-    color: #fff;
-    text-decoration: none;
-}
-
 @keyframes shake {
     0% {
-        transform: translateX(0) translateY(0rem) scale(1) rotate3d(0, 0, 0, 0deg);
+        transform: translateX(0) translateY(-0.25rem) scale(1) rotate3d(0, 0, 0, 0deg);
     }
     25% {
-        transform: translateX(-0.25rem) translateY(0.25rem) scale(1.5) rotate3d(0, 0, 1, 5deg);
+        transform: translateX(-0.25rem) translateY(0rem) scale(1.5) rotate3d(0, 0, 1, 5deg);
     }
     50% {
-        transform: translateX(0) translateY(0.5rem) scale(1) rotate3d(0, 0, 0, 0deg);
+        transform: translateX(0) translateY(0.25rem) scale(1) rotate3d(0, 0, 0, 0deg);
     }
     75% {
-        transform: translateX(0.25rem) translateY(0.25rem) scale(1.5) rotate3d(0, 0, 1, -5deg);
+        transform: translateX(0.25rem) translateY(0rem) scale(1.5) rotate3d(0, 0, 1, -5deg);
     }
     100% {
-        transform: translateX(0) translateY(0.25rem) scale(1) rotate3d(0, 0, 0, 0deg);
+        transform: translateX(0) translateY(0rem) scale(1) rotate3d(0, 0, 0, 0deg);
     }
 }
