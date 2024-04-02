@@ -12,6 +12,7 @@
 }
 
 .plans-contaniner .plan-item {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
@@ -28,6 +29,14 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+p[class^="plan-status-"] {
+    height: 1.1rem;
+}
+
+.plans-contaniner .plan-item p.expanded {
+    white-space: normal;
 }
 
 .plan-status-pending {

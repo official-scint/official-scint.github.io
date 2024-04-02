@@ -1,180 +1,231 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
-    <link type="text/css" rel="stylesheet" href="css/global/style.css">
-    <link type="text/css" rel="stylesheet" href="css/home/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link type="text/css" rel="stylesheet" href="css/global/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/home/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <script defer src="js/hehe.js"></script>
     <script defer src="js/home.js"></script>
     <script defer src="js/helpme.js"></script>
     <script defer src="js/global.js"></script>
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
     <title>SCINT 北臺灣學生資訊社群</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <template id="navbar"></template>
     <div class="banner">
-        <div class="banner-content">
-            <div class="banner-image-fake">
-                <img class="banner-image-left" src="assets/logo-left.png">
-                <img class="banner-image-middle" src="assets/logo-middle.png">
-                <img class="banner-image-right" src="assets/logo-right.png">
-            </div>
-            <h1 class="banner-title">北臺灣學生資訊社群</h1>
+      <div class="banner-content">
+        <div class="banner-image-fake">
+          <img class="banner-image-left" src="assets/logo-left.png" />
+          <img class="banner-image-middle" src="assets/logo-middle.png" />
+          <img class="banner-image-right" src="assets/logo-right.png" />
         </div>
-        <i class="fa-solid fa-chevron-down down-arrow"></i>
+        <h1 class="banner-title">北臺灣學生資訊社群</h1>
+      </div>
+      <i class="fa-solid fa-chevron-down down-arrow"></i>
     </div>
     <div class="container">
-        <h1 class="title" id="about-us">關於我們</h1>
-        <div class="fade-up about-us">
-            <section>
-                <h2>社群理念</h2>
-                <p>Loading...</p>
-            </section>
-            <section>
-                <h2>社群目標</h2>
-                <p>Loading...</p>
-            </section>
-            <section>
-                <h2>成員組成</h2>
-                <p>Loading...</p>
-            </section>
+      <h1 class="title" id="about-us">關於我們</h1>
+      <div class="fade-up about-us">
+        <section>
+          <h2>社群理念</h2>
+          <p>Loading...</p>
+        </section>
+        <section>
+          <h2>社群目標</h2>
+          <p>Loading...</p>
+        </section>
+        <section>
+          <h2>成員組成</h2>
+          <p>Loading...</p>
+        </section>
+      </div>
+      <h1 class="title" id="services">目前服務</h1>
+      <div class="fade-up about-us">
+        <section>
+          <h2>活動協辦</h2>
+          <p>
+            我們樂意協助貴社群或社團舉辦各式活動，可以協助人力、策劃、贊助協調等多方面事務，透過合作，共同打造更具規模與影響力的活動，促進資訊領域的發展。
+          </p>
+        </section>
+        <section>
+          <h2>雲端服務</h2>
+          <p>
+            若貴社團、社群有雲端運算需求，可以與我們申請免費的
+            VM，可以用於日常課程或是活動、專案等，詳細內容歡迎與我們聯繫瞭解更多。
+          </p>
+        </section>
+        <section>
+          <h2>社群推廣</h2>
+          <p>
+            SCINT
+            是一個學生群聚的資訊社群，若貴社團、社群需要活動宣傳，我們可以協助於社群媒體、平台上公告或是貼文。
+          </p>
+        </section>
+      </div>
+      <h1 class="title" id="activity">近期活動</h1>
+      <div class="fade-up events-container"></div>
+      <h1 class="title" id="plans">近期計畫</h1>
+      <div class="fade-up plans-contaniner">
+        <div class="plan-item">
+          <p class="plan-status-active">
+            <i class="fa-solid fa-circle-check icon"></i>
+            進行中
+          </p>
+          <p>
+            APCS 模擬測驗 — 每月舉辦一場，讓即將參加 APCS
+            的考生可以透過模擬測驗更清楚自己練習方向。
+          </p>
         </div>
-        <h1 class="title" id="services">目前服務</h1>
-        <div class="fade-up about-us">
-            <section>
-                <h2>活動協辦</h2>
-                <p>我們樂意協助貴社群或社團舉辦各式活動，可以協助人力、策劃、贊助協調等多方面事務，透過合作，共同打造更具規模與影響力的活動，促進資訊領域的發展。</p>
-            </section>
-            <section>
-                <h2>雲端服務</h2>
-                <p>若貴社團、社群有雲端運算需求，可以與我們申請免費的 VM，可以用於日常課程或是活動、專案等，詳細內容歡迎與我們聯繫瞭解更多。</p>
-            </section>
-            <section>
-                <h2>社群推廣</h2>
-                <p>SCINT 是一個學生群聚的資訊社群，若貴社團、社群需要活動宣傳，我們可以協助於社群媒體、平台上公告或是貼文。</p>
-            </section>
+        <div class="plan-item">
+          <p class="plan-status-active">
+            <i class="fa-solid fa-circle-check icon"></i>
+            進行中
+          </p>
+          <p>
+            Stage 論壇 -
+            透過邀請不同的講者上台，討論不同的主題，讓聽眾可以瞭解到不同的領域。
+          </p>
         </div>
-        <h1 class="title" id="activity">近期活動</h1>
-        <div class="fade-up events-container"></div>
-        <h1 class="title" id="plans">近期計畫</h1>
-        <div class="fade-up plans-contaniner">
-            <div class="plan-item">
-                <p class="plan-status-active">
-                    <i class="fa-solid fa-circle-check icon"></i>
-                    進行中
-                </p>
-                <p>APCS 模擬測驗 — 每月舉辦一場，讓即將參加 APCS 的考生可以透過模擬測驗更清楚自己練習方向。</p>
-            </div>
-            <div class="plan-item">
-                <p class="plan-status-active">
-                    <i class="fa-solid fa-circle-check icon"></i>
-                    進行中
-                </p>
-                <p>Stage 論壇 - 透過邀請不同的講者上台，討論不同的主題，讓聽眾可以瞭解到不同的領域。</p>
-            </div>
-            <div class="plan-item">
-                <p class="plan-status-active">
-                    <i class="fa-solid fa-circle-check icon"></i>
-                    進行中
-                </p>
-                <p>聯合程式競賽 - 透過程式競賽的方式，我們希望可以提升學生學習程式的動力以及提供一個給大家切磋能力的平台。</p>
-            </div>
-            <div class="plan-item">
-                <p class="plan-status-pending">
-                    <i class="fa-solid fa-screwdriver-wrench icon"></i>
-                    籌辦中
-                </p>
-                <p>環島 Hour of Code — 我們將走訪全臺 25 間偏鄉國中小，並透過舉辦 Hour of Code 來推廣資訊教育。</p>
-            </div>
-            <div class="plan-item">
-                <p class="plan-status-expired">
-                    <i class="fa-solid fa-star icon"></i>
-                    已完成
-                </p>
-                <p>四校聯課</p>
-            </div>
+        <div class="plan-item">
+          <p class="plan-status-active">
+            <i class="fa-solid fa-circle-check icon"></i>
+            進行中
+          </p>
+          <p>
+            聯合程式競賽 -
+            透過程式競賽的方式，我們希望可以提升學生學習程式的動力以及提供一個給大家切磋能力的平台。
+          </p>
         </div>
-        <h1 class="title" id="clubs">合作社團</h1>
-        <div class="clubs">
-            <div class="fade-up clubs-row">
-                <div class="club-card">
-                    <img class="club-image" src="assets/clubs/club_1.jpg">
-                    <div class="club-info">
-                        <p class="club-school">Loading...</p>
-                        <hr width="100%">
-                        <p class="club-name">Loading...</p>
-                        <div class="club-socials">
-                            <a target="_blank" href="/" class="hidden"><i class="fa-solid fa-globe"></i></a>
-                            <a target="_blank" href="/" class="hidden"><i class="fa-brands fa-discord"></i></a>
-                            <a target="_blank" href="/" class="hidden"><i class="fa-brands fa-instagram"></i></a>
-                            <a target="_blank" href="/" class="hidden"><i class="fa-brands fa-facebook"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="club-card">
-                    <img class="club-image" src="assets/clubs/club_1.jpg">
-                    <div class="club-info">
-                        <p class="club-school">Loading...</p>
-                        <hr width="100%">
-                        <p class="club-name">Loading...</p>
-                        <div class="club-socials">
-                            <a target="_blank" href="/" class="hidden"><i class="fa-solid fa-globe"></i></a>
-                            <a target="_blank" href="/" class="hidden"><i class="fa-brands fa-discord"></i></a>
-                            <a target="_blank" href="/" class="hidden"><i class="fa-brands fa-instagram"></i></a>
-                            <a target="_blank" href="/" class="hidden"><i class="fa-brands fa-facebook"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="club-card">
-                    <img class="club-image" src="assets/clubs/club_1.jpg">
-                    <div class="club-info">
-                        <p class="club-school">Loading...</p>
-                        <hr width="100%">
-                        <p class="club-name">Loading...</p>
-                        <div class="club-socials">
-                            <a target="_blank" href="/" class="hidden"><i class="fa-solid fa-globe"></i></a>
-                            <a target="_blank" href="/" class="hidden"><i class="fa-brands fa-discord"></i></a>
-                            <a target="_blank" href="/" class="hidden"><i class="fa-brands fa-instagram"></i></a>
-                            <a target="_blank" href="/" class="hidden"><i class="fa-brands fa-facebook"></i></a>
-                        </div>
-                    </div>
-                </div>
+        <div class="plan-item">
+          <p class="plan-status-pending">
+            <i class="fa-solid fa-screwdriver-wrench icon"></i>
+            籌辦中
+          </p>
+          <p>
+            環島 Hour of Code — 我們將走訪全臺 25 間偏鄉國中小，並透過舉辦 Hour
+            of Code 來推廣資訊教育。
+          </p>
+        </div>
+        <div class="plan-item">
+          <p class="plan-status-expired">
+            <i class="fa-solid fa-star icon"></i>
+            已完成
+          </p>
+          <p>四校聯課</p>
+        </div>
+      </div>
+      <h1 class="title" id="clubs">合作社團</h1>
+      <div class="clubs">
+        <div class="fade-up clubs-row">
+          <div class="club-card">
+            <img class="club-image" src="assets/clubs/club_1.jpg" />
+            <div class="club-info">
+              <p class="club-school">Loading...</p>
+              <hr width="100%" />
+              <p class="club-name">Loading...</p>
+              <div class="club-socials">
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-solid fa-globe"></i
+                ></a>
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-brands fa-discord"></i
+                ></a>
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+              </div>
             </div>
-            <div class="fade-up club-avatars"></div>
+          </div>
+          <div class="club-card">
+            <img class="club-image" src="assets/clubs/club_1.jpg" />
+            <div class="club-info">
+              <p class="club-school">Loading...</p>
+              <hr width="100%" />
+              <p class="club-name">Loading...</p>
+              <div class="club-socials">
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-solid fa-globe"></i
+                ></a>
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-brands fa-discord"></i
+                ></a>
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="club-card">
+            <img class="club-image" src="assets/clubs/club_1.jpg" />
+            <div class="club-info">
+              <p class="club-school">Loading...</p>
+              <hr width="100%" />
+              <p class="club-name">Loading...</p>
+              <div class="club-socials">
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-solid fa-globe"></i
+                ></a>
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-brands fa-discord"></i
+                ></a>
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a target="_blank" href="/" class="hidden"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 class="title" id="activity">合作申請</h1>
-        <div class="fade-up about-us">
-            <section>
-                <h2>誰可以申請</h2>
-                <p>我們歡迎全臺的社團、社群與 SCINT 合作，不論你是北、中、南，或是非資訊類社團，我們都樂見於與各類組織共同促進資訊領域的交流與合作。</p>
-            </section>
-            <section>
-                <h2>如何申請</h2>
-                <p>只需花五分鐘填寫下方表單即可完成合作申請：</p>
-                <div class="button-section">
-                    <a href="https://join.scint.org" target="_blank">
-                        <button class="btn">點我填寫申請表單</button>
-                    </a>
-                </div>
-            </section>
-        </div>
-        <h1 class="title" id="sponsors">合作單位</h1>
-        <div class="fade-up sponsors">
-        </div>
+        <div class="fade-up club-avatars"></div>
+      </div>
+      <h1 class="title" id="activity">合作申請</h1>
+      <div class="fade-up about-us">
+        <section>
+          <h2>誰可以申請</h2>
+          <p>
+            我們歡迎全臺的社團、社群與 SCINT
+            合作，不論你是北、中、南，或是非資訊類社團，我們都樂見於與各類組織共同促進資訊領域的交流與合作。
+          </p>
+        </section>
+        <section>
+          <h2>如何申請</h2>
+          <p>只需花五分鐘填寫下方表單即可完成合作申請：</p>
+          <div class="button-section">
+            <a href="https://join.scint.org" target="_blank">
+              <button class="btn">點我填寫申請表單</button>
+            </a>
+          </div>
+        </section>
+      </div>
+      <h1 class="title" id="sponsors">合作單位</h1>
+      <div class="fade-up sponsors"></div>
     </div>
     <template id="footer"></template>
-</body>
-
+  </body>
 </html>

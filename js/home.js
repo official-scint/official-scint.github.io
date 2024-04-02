@@ -18,6 +18,14 @@ function onMounted() {
   });
 }
 
+// click on the plan item to expand
+[...document.querySelectorAll(`.plan-item`)].map((element) => {
+  element.addEventListener("click", (event) => {
+    const expandedSection = element.querySelector(`p:not([class^="plan-status"])`);
+    expandedSection.classList.toggle("expanded");
+  });
+});
+
 // dynamic content
 fetch("config.json")
   .then((response) => response.json())
