@@ -19,7 +19,6 @@
     padding: 0.8rem;
     border-radius: 5px;
     background-color: var(--bg-secondary-hover);
-    border-radius: 1rem;
     transition: 200ms;
 }
 

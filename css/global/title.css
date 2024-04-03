@@ -24,13 +24,11 @@
     top: 50%;
 }
 
-.title::before,
 .title::before {
     margin-left: -2rem;
     transform: translateX(-100%);
 }
 
-.title::after,
 .title::after {
     margin-left: 2rem;
 }
