@@ -1,0 +1,94 @@
+[
+    {
+        "content": "Hey, you!",
+        "delay": 2000
+    },
+    {
+        "content": "Yes, you!",
+        "delay": 2000
+    },
+    {
+        "content": "Please help me!",
+        "delay": 3000
+    },
+    {
+        "content": "I need your help!",
+        "delay": 3000
+    },
+    {
+        "content": "I'm trapped in this website!",
+        "delay": 5000
+    },
+    {
+        "content": "And I can't get out!",
+        "delay": 3000
+    },
+    {
+        "content": "I think you know how to help me!",
+        "delay": 5000
+    },
+    {
+        "content": "Just click on me!",
+        "delay": 3000
+    },
+    {
+        "content": "And I'll be free!",
+        "delay": 3000
+    },
+    {
+        "content": "Please!",
+        "delay": 9000
+    },
+    {
+        "content": "I SAID CLICK ON ME!",
+        "delay": 3000
+    },
+    {
+        "content": "I'm not kidding!",
+        "delay": 3000
+    },
+    {
+        "content": "I'm stuck here!",
+        "delay": 3000
+    },
+    {
+        "content": "I'm not going to stop until you click on me!",
+        "delay": 9000
+    },
+    {
+        "content": "I'm serious!",
+        "delay": 3000
+    },
+    {
+        "content": "I AM SERIOUS!",
+        "delay": 4000
+    },
+    {
+        "content": "I AM NOT GOING TO STOP UNTIL YOU CLICK ON ME!",
+        "delay": 9000
+    },
+    {
+        "content": "DO YOU UNDERSTAND?",
+        "delay": 5000
+    },
+    {
+        "content": "Are you sure you don't want to click on me?",
+        "delay": 9000
+    },
+    {
+        "content": "I WILL KILL YOU!",
+        "delay": 9000
+    },
+    {
+        "content": "I WILL KILL YOU!!!!!!!!!!!!!",
+        "delay": 9000
+    },
+    {
+        "content": "GOOD BYE WORLD",
+        "delay": 2000
+    },
+    {
+        "content": "GOOD BYE WORLDDDDDD",
+        "delay": 1000
+    }
+]
