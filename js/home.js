@@ -9,150 +9,162 @@ downArrow.addEventListener("click", () => {
 function onMounted() {
   document.querySelectorAll(".navbar-item > a").forEach((element) => {
     element.addEventListener("click", (event) => {
-        const target = event.target;
-        const targetId = target.getAttribute("href").substring(1);
-        const targetElement = document.getElementById(targetId);
-        targetElement.scrollIntoView({ behavior: "smooth" });
-        event.preventDefault();
-      });
+      const target = event.target;
+      const targetId = target.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+      targetElement.scrollIntoView({ behavior: "smooth" });
+      event.preventDefault();
+    });
   });
 }
 
 // click on the plan item to expand
-[...document.querySelectorAll(`.plan-item`)].map((element) => {
+for (const element of [...document.querySelectorAll(`.plan-item`)]) {
   element.addEventListener("click", (event) => {
-    const expandedSection = element.querySelector(`p:not([class^="plan-status"])`);
+    const expandedSection = element.querySelector(
+      `p:not([class^="plan-status"])`
+    );
     expandedSection.classList.toggle("expanded");
   });
-});
+}
+
+function loadAboutUs(config) {
+  for (let i = 0; i < config["about-us"].length; i++) {
+    document
+      .querySelector(".about-us")
+      .children[i].querySelector("p").innerHTML = config["about-us"][i];
+  }
+}
+
+function loadClubs(config) {
+  const clubGroupElement = document.querySelector(".club-avatars");
+    for (const { name, school, image, socials } of config["clubs"]) {
+      const clubCardElement = document.createElement("div");
+      clubCardElement.classList.add("club-small-card");
+      clubCardElement.dataset.name = school + name;
+      clubCardElement.innerHTML = `<img class="club-avatar" src="${image}" alt="club-image">`;
+      clubGroupElement.appendChild(clubCardElement);
+    }
+}
+
+function loadSponsors(config) {
+  const sponsorGroupElement = document.querySelector(".sponsors");
+  for (const { image, url } of config["sponsors"]) {
+    const sponsorCardElement = document.createElement("a");
+    sponsorCardElement.classList.add("sponsor-card");
+    sponsorCardElement.href = url;
+    sponsorCardElement.innerHTML = `<img src="${image}">`;
+    sponsorGroupElement.appendChild(sponsorCardElement);
+  }
+}
+
+function clubCardsSlider(config) {
+  let currentIndex = 3;
+  let offset = 3;
+  let sliderSize = config["clubs"].length;
+  function render() {
+    const indexMod = currentIndex % sliderSize;
+    // fade in
+    document.querySelector(".clubs-row").animate(
+      [
+        { opacity: 0, transform: "translateX(-50px)" },
+        { opacity: 1, transform: "translateX(0px)" },
+      ],
+      {
+        duration: 500,
+        easing: "ease-in-out",
+        fill: "forwards",
+      }
+    );
+    // waiting for fade out
+    setTimeout(() => {
+      document.querySelector(".clubs-row").animate(
+        [
+          { opacity: 1, transform: "translateX(0px)" },
+          { opacity: 0, transform: "translateX(50px)" },
+        ],
+        {
+          duration: 500,
+          easing: "ease-in-out",
+          fill: "forwards",
+        }
+      );
+      setTimeout(() => {
+        for (let i = indexMod, j = 0; i < indexMod + offset; i++, j++) {
+          const { name, school, image, socials } =
+            config["clubs"][(indexMod + j) % sliderSize];
+          const clubCardElement =
+            document.querySelector(".clubs-row").children[i - indexMod];
+          clubCardElement.querySelector(".club-name").innerHTML = name;
+          clubCardElement.querySelector(".club-school").innerHTML = school;
+          clubCardElement.querySelector(".club-image").src = image;
+          for (let j = 0; j < socials.length; j++) {
+            const social = socials[j];
+            const socialName = social["name"];
+            const socialLink = social["url"];
+            const socialElement = clubCardElement.querySelector(
+              {
+                facebook: ".fa-facebook",
+                instagram: ".fa-instagram",
+                website: ".fa-globe",
+                discord: ".fa-discord",
+              }[socialName]
+            );
+            socialElement.parentElement.classList.remove("hidden");
+            socialElement.parentElement.href = socialLink;
+          }
+        }
+      }, 500);
+    }, 4000);
+  }
+  render();
+  return {
+    next: () => {
+      currentIndex += offset;
+      render();
+    },
+    prev: () => {
+      currentIndex -= offset;
+      render();
+    },
+    init: () => {
+      for (let i = 0; i < 3; i++) {
+        const { name, school, image, socials } = config["clubs"][i];
+        const clubCardElement =
+          document.querySelector(".clubs-row").children[i];
+        clubCardElement.querySelector(".club-name").innerHTML = name;
+        clubCardElement.querySelector(".club-school").innerHTML = school;
+        clubCardElement.querySelector(".club-image").src = image;
+        for (let j = 0; j < socials.length; j++) {
+          const social = socials[j];
+          const socialName = social["name"];
+          const socialLink = social["url"];
+          const socialElement = clubCardElement.querySelector(
+            {
+              facebook: ".fa-facebook",
+              instagram: ".fa-instagram",
+              website: ".fa-globe",
+              discord: ".fa-discord",
+            }[socialName]
+          );
+          socialElement.parentElement.classList.remove("hidden");
+          socialElement.parentElement.href = socialLink;
+        }
+      }
+    },
+  };
+}
 
 // dynamic content
 fetch("config.json")
   .then((response) => response.json())
   .then((config) => {
-    // about us
-    for (let i = 0; i < config["about-us"].length; i++) {
-      document
-        .querySelector(".about-us")
-        .children[i].querySelector("p").innerHTML = config["about-us"][i];
-    }
-    // clubs
-    const clubGroupElement = document.querySelector(".club-avatars");
-    for (const { name, school, image, socials } of config["clubs"]) {
-      const clubCardElement = document.createElement("div");
-      clubCardElement.classList.add("club-small-card");
-      clubCardElement.dataset.name = school + name;
-      clubCardElement.innerHTML = `<img class="club-avatar" src="${image}">`;
-      clubGroupElement.appendChild(clubCardElement);
-    }
-    // sponsors
-    const sponsorGroupElement = document.querySelector(".sponsors");
-    for (const { image, url } of config["sponsors"]) {
-      const sponsorCardElement = document.createElement("a");
-      sponsorCardElement.classList.add("sponsor-card");
-      sponsorCardElement.href = url;
-      sponsorCardElement.innerHTML = `<img src="${image}">`;
-      sponsorGroupElement.appendChild(sponsorCardElement);
-    }
 
-    function clubCardsSlider() {
-      let currentIndex = 3;
-      let offset = 3;
-      let sliderSize = config["clubs"].length;
-      function render() {
-        const indexMod = currentIndex % sliderSize;
-        // fade in
-        document.querySelector(".clubs-row").animate(
-          [
-            { opacity: 0, transform: "translateX(-50px)" },
-            { opacity: 1, transform: "translateX(0px)" },
-          ],
-          {
-            duration: 500,
-            easing: "ease-in-out",
-            fill: "forwards",
-          }
-        );
-        // waiting for fade out
-        setTimeout(() => {
-          document.querySelector(".clubs-row").animate(
-            [
-              { opacity: 1, transform: "translateX(0px)" },
-              { opacity: 0, transform: "translateX(50px)" },
-            ],
-            {
-              duration: 500,
-              easing: "ease-in-out",
-              fill: "forwards",
-            }
-          );
-          setTimeout(() => {
-            for (let i = indexMod, j = 0; i < indexMod + offset; i++, j++) {
-              const { name, school, image, socials } =
-                config["clubs"][(indexMod + j) % sliderSize];
-              const clubCardElement =
-                document.querySelector(".clubs-row").children[i - indexMod];
-              clubCardElement.querySelector(".club-name").innerHTML = name;
-              clubCardElement.querySelector(".club-school").innerHTML = school;
-              clubCardElement.querySelector(".club-image").src = image;
-              for (let j = 0; j < socials.length; j++) {
-                const social = socials[j];
-                const socialName = social["name"];
-                const socialLink = social["url"];
-                const socialElement = clubCardElement.querySelector(
-                  {
-                    facebook: ".fa-facebook",
-                    instagram: ".fa-instagram",
-                    website: ".fa-globe",
-                    discord: ".fa-discord",
-                  }[socialName]
-                );
-                socialElement.parentElement.classList.remove("hidden");
-                socialElement.parentElement.href = socialLink;
-              }
-            }
-          }, 500);
-        }, 4000);
-      }
-      render();
-      return {
-        next: () => {
-          currentIndex += offset;
-          render();
-        },
-        prev: () => {
-          currentIndex -= offset;
-          render();
-        },
-        init: () => {
-          for (let i = 0; i < 3; i++) {
-            const { name, school, image, socials } = config["clubs"][i];
-            const clubCardElement =
-              document.querySelector(".clubs-row").children[i];
-            clubCardElement.querySelector(".club-name").innerHTML = name;
-            clubCardElement.querySelector(".club-school").innerHTML = school;
-            clubCardElement.querySelector(".club-image").src = image;
-            for (let j = 0; j < socials.length; j++) {
-              const social = socials[j];
-              const socialName = social["name"];
-              const socialLink = social["url"];
-              const socialElement = clubCardElement.querySelector(
-                {
-                  facebook: ".fa-facebook",
-                  instagram: ".fa-instagram",
-                  website: ".fa-globe",
-                  discord: ".fa-discord",
-                }[socialName]
-              );
-              socialElement.parentElement.classList.remove("hidden");
-              socialElement.parentElement.href = socialLink;
-            }
-          }
-        },
-      };
-    }
+    loadAboutUs(config);
+    loadClubs(config);
+    loadSponsors(config);
 
-    const clubSlider = clubCardsSlider();
+    const clubSlider = clubCardsSlider(config);
     clubSlider.init();
     setInterval(() => {
       clubSlider.next();
