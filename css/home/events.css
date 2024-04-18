@@ -94,8 +94,11 @@
     gap: 1rem;
 }
 
+
+
 @media (max-width: 1050px) {
     .events-container {
+        padding: 3rem 3rem;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
@@ -137,5 +140,11 @@
     .event-image {
         
         aspect-ratio: 3 / 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .events-container {
+        padding: 1rem;
     }
 }
