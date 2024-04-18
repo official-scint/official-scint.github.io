@@ -7,6 +7,7 @@ downArrow.addEventListener("click", () => {
 
 // the function will be called after all components are loaded
 function onMounted() {
+  // scroll to the target section when clicking on the navbar item
   document.querySelectorAll(".navbar-item > a").forEach((element) => {
     element.addEventListener("click", (event) => {
       const target = event.target;
@@ -15,6 +16,12 @@ function onMounted() {
       targetElement.scrollIntoView({ behavior: "smooth" });
       event.preventDefault();
     });
+  });
+  // toggle the mobile navbar when clicking on the navbar button
+  const navbar = document.querySelector(".navbar-mobile");
+  const navbarButton = document.querySelector(".navbar-toggle");
+  navbarButton.addEventListener("click", () => {
+    navbar.classList.toggle("active");
   });
 }
 
@@ -231,7 +238,10 @@ fetch("https://api.scint.org/events")
                 <div class="event-card-left">
                     <div class="event-details">
                         <h2 class="event-title">${title}</h2>
-                        <p class="event-description">${description.replaceAll("\n", "<br>")}</p>
+                        <p class="event-description">${description.replaceAll(
+                          "\n",
+                          "<br>"
+                        )}</p>
                     </div>
                     <div class="event-buttons">
                         <a target="_blank" href="${add_to_calendar_url}" class="event-button">添加到行事曆</a>
@@ -239,8 +249,9 @@ fetch("https://api.scint.org/events")
                 </div>
                 <div class="event-card-right">
                     ${
-                      image_url === null ? "" :
-                      `<img class="event-image" src="${image_url}" />`
+                      image_url === null
+                        ? ""
+                        : `<img class="event-image" src="${image_url}" />`
                     }
                 </div>
             </div>

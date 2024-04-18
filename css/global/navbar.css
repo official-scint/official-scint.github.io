@@ -1,117 +1,147 @@
 .navbar {
-    background-color:#5f6771ad;
-    left:0;
-    padding:0 .4rem;
-    position: fixed;
-    right:0;
-    top:0;
-    z-index:5;
-    overflow: hidden;
+  background-color: #5f6771ad;
+  left: 0;
+  padding: 0 0.4rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 5;
+  overflow: hidden;
 }
 
 .navbar > ul {
-    font-weight: bold;
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    background-color: var(--bg-secondary);
-    padding: 1rem;
-    position: fixed;
-    margin: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 6;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.808);
+  font-weight: bold;
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  position: fixed;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.808);
 }
 
 .navbar > ul::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .navbar-item > a {
-    text-decoration: none;
-    color: var(--font-color);
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+.navbar > ul.navbar-mobile {
+  display: none;
 }
 
 .discord-button {
-    position: relative;
-    background-color: #434caf;
-    color: var(--font-color);
-    padding: 0.5rem 3rem;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    transition: 100ms;
-    margin-left: auto;
-    margin-top: -0.5rem;
-    margin-bottom: -0.5rem ;
-    margin-right: -0.5rem;
-    display: flex;
-    vertical-align: middle;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    --message: "Hey, you!";
+  position: relative;
+  background-color: #434caf;
+  color: var(--font-color);
+  padding: 0.5rem 3rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: 100ms;
+  margin-left: auto;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+  margin-right: -0.5rem;
+  display: flex;
+  vertical-align: middle;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  --message: "Hey, you!";
 }
 
-@media (max-width: 500px) {
-    .discord-button {
-        display: none;
-    }
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar > ul.navbar-mobile.active {
+    display: block;
+    top: 3.8rem;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: none;
+  }
+
+  .navbar .navbar-desktop li {
+    display: none;
+  }
+  .navbar-toggle {
+    display: block;
+    color: var(--font-color);
+    border: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+  }
 }
 
 .discord-button:hover > i {
-    animation: shake 300ms infinite linear;
+  animation: shake 300ms infinite linear;
 }
 
 .discord-button::before {
-    content: var(--message);
-    position: absolute;
-    transform: translateX(-100%) translateY(0%);
-    filter: drop-shadow(0 0 0.5rem #00000098);
-    background-color: #2c3494;
-    font-weight: bold;
-    display: flex;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 0.8rem;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: 100ms;
-    white-space: nowrap;
+  content: var(--message);
+  position: absolute;
+  transform: translateX(-100%) translateY(0%);
+  filter: drop-shadow(0 0 0.5rem #00000098);
+  background-color: #2c3494;
+  font-weight: bold;
+  display: flex;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 100ms;
+  white-space: nowrap;
 }
 
 .fa-discord {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .discord-button:hover::before {
-    opacity: 1;
-    transform: translateX(-110%) translateY(-30%);
+  opacity: 1;
+  transform: translateX(-110%) translateY(-30%);
 }
 
 .discord-button:hover {
-    background-color: #525bbd;
+  background-color: #525bbd;
 }
 
 @keyframes shake {
-    0% {
-        transform: translateX(0) translateY(-0.25rem) scale(1) rotate3d(0, 0, 0, 0deg);
-    }
-    25% {
-        transform: translateX(-0.25rem) translateY(0rem) scale(1.5) rotate3d(0, 0, 1, 5deg);
-    }
-    50% {
-        transform: translateX(0) translateY(0.25rem) scale(1) rotate3d(0, 0, 0, 0deg);
-    }
-    75% {
-        transform: translateX(0.25rem) translateY(0rem) scale(1.5) rotate3d(0, 0, 1, -5deg);
-    }
-    100% {
-        transform: translateX(0) translateY(0rem) scale(1) rotate3d(0, 0, 0, 0deg);
-    }
+  0% {
+    transform: translateX(0) translateY(-0.25rem) scale(1)
+      rotate3d(0, 0, 0, 0deg);
+  }
+  25% {
+    transform: translateX(-0.25rem) translateY(0rem) scale(1.5)
+      rotate3d(0, 0, 1, 5deg);
+  }
+  50% {
+    transform: translateX(0) translateY(0.25rem) scale(1)
+      rotate3d(0, 0, 0, 0deg);
+  }
+  75% {
+    transform: translateX(0.25rem) translateY(0rem) scale(1.5)
+      rotate3d(0, 0, 1, -5deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0rem) scale(1) rotate3d(0, 0, 0, 0deg);
+  }
 }
