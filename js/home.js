@@ -38,13 +38,13 @@ function loadAboutUs(config) {
 
 function loadClubs(config) {
   const clubGroupElement = document.querySelector(".club-avatars");
-    for (const { name, school, image, socials } of config["clubs"]) {
-      const clubCardElement = document.createElement("div");
-      clubCardElement.classList.add("club-small-card");
-      clubCardElement.dataset.name = school + name;
-      clubCardElement.innerHTML = `<img class="club-avatar" src="${image}" alt="club-image">`;
-      clubGroupElement.appendChild(clubCardElement);
-    }
+  for (const { name, school, image, socials } of config["clubs"]) {
+    const clubCardElement = document.createElement("div");
+    clubCardElement.classList.add("club-small-card");
+    clubCardElement.dataset.name = school + name;
+    clubCardElement.innerHTML = `<img class="club-avatar" src="${image}" alt="club-image">`;
+    clubGroupElement.appendChild(clubCardElement);
+  }
 }
 
 function loadSponsors(config) {
@@ -159,7 +159,6 @@ function clubCardsSlider(config) {
 fetch("config.json")
   .then((response) => response.json())
   .then((config) => {
-
     loadAboutUs(config);
     loadClubs(config);
     loadSponsors(config);
@@ -209,7 +208,10 @@ fetch("https://api.scint.org/events")
     for (const event of events) {
       const description = event.description;
       const start_time = new Date(event.scheduled_start_time);
-      const image_url = `https://cdn.discordapp.com/guild-events/${event.id}/${event.image}?size=2048`;
+      const image_url =
+        !event.id || !event.image
+          ? null
+          : `https://cdn.discordapp.com/guild-events/${event.id}/${event.image}?size=2048`;
       const title = event.name;
       const add_to_calendar_url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${title.replace(
         "#",
@@ -236,8 +238,10 @@ fetch("https://api.scint.org/events")
                     </div>
                 </div>
                 <div class="event-card-right">
-                    <img class="event-image"
-                        src="${image_url}" />
+                    ${
+                      image_url === null ? "" :
+                      `<img class="event-image" src="${image_url}" />`
+                    }
                 </div>
             </div>
             `);
