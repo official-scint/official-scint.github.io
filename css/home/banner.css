@@ -48,14 +48,14 @@
 .banner-image-fake > .banner-image-left {
     width: calc(var(--left-logo-width) * var(--image-scale));
     animation: fade-left 1s ease-in-out forwards;
-    animation-delay: 0.3s;
+    animation-delay: 0.4s;
     opacity: 0;
 }
 
 .banner-image-fake > .banner-image-middle {
     width: calc(var(--middle-logo-width) * var(--image-scale));
     animation: rotate 1s ease-in-out forwards;
-    animation-delay: 0.3s;
+    animation-delay: 0.4s;
     opacity: 0;
     cursor: pointer;
 }
@@ -63,7 +63,7 @@
 .banner-image-fake > .banner-image-right {
     width: calc(var(--right-logo-width) * var(--image-scale));
     animation: fade-right 1s ease-in-out forwards;
-    animation-delay: 0.3s;
+    animation-delay: 0.4s;
     opacity: 0;
 }
 
