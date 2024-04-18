@@ -231,10 +231,10 @@ fetch("https://api.scint.org/events")
                 <div class="event-card-left">
                     <div class="event-details">
                         <h2 class="event-title">${title}</h2>
-                        <pre class="event-description">${description}</pre>
+                        <p class="event-description">${description.replaceAll("\n", "<br>")}</p>
                     </div>
                     <div class="event-buttons">
-                        <a target="_blank" href="${add_to_calendar_url}" class="event-button">添加行事曆</a>
+                        <a target="_blank" href="${add_to_calendar_url}" class="event-button">添加到行事曆</a>
                     </div>
                 </div>
                 <div class="event-card-right">
