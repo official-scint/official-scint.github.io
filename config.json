@@ -224,6 +224,17 @@
           "url": "https://www.instagram.com/dscs_2nd/"
         }
       ]
+    },
+    {
+      "name": "資訊研究社",
+      "school": "國立新竹科學園區實驗高級中等學校",
+      "image": "assets/clubs/club21.png",
+      "socials": [
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/nehs_iced/"
+        }
+      ]
     }
   ],
   "sponsors": [
