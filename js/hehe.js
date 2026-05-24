@@ -1,10 +1,11 @@
 const lightningImage = document.querySelector(".banner-image-middle");
+if (lightningImage) {
 let isAnimationEnded = true;
 let clickCount = 0;
 const clickCountTarget = 30;
 const temmieSoundCache = new Audio("./assets/wewe.wav");
 temmieSoundCache.volume = 0;
-temmieSoundCache.play();
+temmieSoundCache.play().catch(() => {});
 
 lightningImage.addEventListener("click", () => {
     if (!isAnimationEnded) return;
@@ -67,7 +68,7 @@ function getRandomInt(min, max) {
 const summonTemmie = () => {
     const temmieSound = new Audio("./assets/wewe.wav");
     temmieSound.volume = 0.5;
-    temmieSound.play();
+    temmieSound.play().catch(() => {});
     const temmieElement = document.createElement("img");
     temmieElement.classList.add("temmie");
     temmieElement.src = "assets/temmie.png";
@@ -88,3 +89,4 @@ const summonTemmie = () => {
     });
 };
 
+}

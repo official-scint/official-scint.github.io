@@ -13,12 +13,29 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  overflow-y: overlay;
-  font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei", STXihei, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #e0e2e9;
+  color: var(--color-text);
   min-height: 100vh;
   position: relative;
-  padding-bottom: 7rem;
+}
+
+body::before {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(110, 162, 238, 0.16), transparent 28rem),
+    radial-gradient(circle at 90% 0%, rgba(88, 101, 242, 0.12), transparent 30rem);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }

@@ -4,13 +4,16 @@ let enterTime = 0;
 let chatInterval = null;
 
 function updateMessage(message) {
-    discordButton.style.cssText = `--message: "${message}";`;
+    if (!discordButton) return;
+    discordButton.style.setProperty("--message", JSON.stringify(message));
 }
 
 let messageList = [];
 
 fetch('messages.json').then(response => response.json()).then(messages => {
     messageList = messages;
+}).catch(() => {
+    messageList = [{ content: "Hey, you!", delay: 2000 }];
 });
 
 const waitingInterval = setInterval(() => {

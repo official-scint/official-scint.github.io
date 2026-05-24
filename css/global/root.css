@@ -1,20 +1,48 @@
 :root {
-    --bg-main: #02041F;
-    --bg-secondary: #0E1133;
-    --bg-secondary-hover: #11153d;
-    --bg-primary: #5F8AC9;
-    --bg-primary-light: #87a5d3;
-    --bg-primary-opacity-30: #5f89c93f;
-    --font-color: #D9DEED;
+  --color-bg: #02041f;
+  --color-bg-elevated: #060a22;
+  --color-surface: #0b1029;
+  --color-surface-raised: #101735;
+  --color-surface-soft: rgba(95, 138, 201, 0.08);
+  --color-border: rgba(135, 165, 211, 0.18);
+  --color-border-strong: rgba(135, 165, 211, 0.32);
+  --color-text: #eef3ff;
+  --color-text-muted: #aeb9d4;
+  --color-accent: #6ea2ee;
+  --color-accent-strong: #8db8ff;
+  --color-discord: #5865f2;
+  --color-success: #4ade80;
+  --color-warning: #facc15;
+  --color-danger: #fb7185;
+  --shadow-soft: 0 18px 60px rgba(0, 0, 0, 0.28);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --page-max: 1160px;
+
+  --bg-main: var(--color-bg);
+  --bg-secondary: var(--color-surface);
+  --bg-secondary-hover: var(--color-surface-raised);
+  --bg-primary: var(--color-accent);
+  --bg-primary-light: var(--color-accent-strong);
+  --bg-primary-opacity-30: rgba(110, 162, 238, 0.24);
+  --font-color: var(--color-text);
 }
 
-html, body {
-    font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei", STXihei, sans-serif;
-    background-color: var(--bg-main);
-    color: var(--font-color);
-    box-sizing: content-box;
-    overflow-y: overlay;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  box-sizing: border-box;
+  font-family: Inter, Tahoma, Helvetica, Arial, "Microsoft Yahei", STXihei, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }

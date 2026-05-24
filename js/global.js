@@ -1,18 +1,26 @@
 const templates = document.querySelectorAll("template");
-const depth = location.href.replace("//", "").split("/").length - 2;
+const pathParts = location.pathname.split("/").filter(Boolean);
+const depth = location.pathname.endsWith("/")
+  ? pathParts.length
+  : Math.max(pathParts.length - 1, 0);
 
 const fetchComponents = [...templates].map(async (template) => {
-    const templateID = template.id;
-    const response = await fetch(
-      `${"../".repeat(depth)}/components/${templateID}.html`
-    );
-    const component = await response.text();
-    template.outerHTML = component;
+  const templateID = template.id;
+  const response = await fetch(
+    `${"../".repeat(depth)}/components/${templateID}.html`
+  );
+  if (!response.ok) {
+    throw new Error(`Failed to load component: ${templateID}`);
+  }
+  const component = await response.text();
+  template.outerHTML = component;
 });
 
 // load all components, then run onMounted callback
 Promise.all(fetchComponents).then(() => {
+  if (typeof onMounted === "function") {
     onMounted();
+  }
 });
 
 // title animation
