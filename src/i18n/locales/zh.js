@@ -268,6 +268,14 @@ export const zh = {
     name: "姓名（非必填）",
     list: "活動資訊",
     submit: "訂閱",
+    captcha: {
+      label: "我不是機器人",
+      verifying: "驗證中…",
+      verified: "已驗證",
+      error: "驗證失敗，請稍後再試。",
+      expired: "驗證已過期，請重新驗證。",
+      waitAlert: "驗證中，請稍候。",
+    },
   },
 
   footer: {
