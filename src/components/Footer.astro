@@ -209,33 +209,39 @@ const year = new Date().getFullYear();
   }
 
   .sub {
-    display: grid;
-    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     gap: clamp(1.25rem, 4vw, 3.5rem);
-    align-items: start;
     margin-top: clamp(2.25rem, 4vw, 3.25rem);
     padding-top: clamp(1.75rem, 3vw, 2.5rem);
     border-top: 1px solid var(--line);
   }
 
+  .sub-intro {
+    flex: 1 1 13rem;
+    max-width: 22rem;
+  }
+
   .sub-note {
     font-size: 0.88rem;
-    max-width: 34ch;
   }
 
   .sub-form {
+    flex: 3 1 20rem;
     display: grid;
     gap: 0.9rem;
     max-width: 40rem;
   }
 
   .sub-fields {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.6rem;
   }
 
   .sub-fields input {
+    flex: 1 1 10rem;
     min-width: 0;
     padding: 0.7rem 0.9rem;
     border: 1px solid var(--line-strong);
@@ -255,6 +261,7 @@ const year = new Date().getFullYear();
   }
 
   .sub-fields :global(.btn) {
+    flex: 0 0 auto;
     white-space: nowrap;
   }
 
@@ -277,13 +284,6 @@ const year = new Date().getFullYear();
     accent-color: var(--gold);
   }
 
-  @media (max-width: 900px) {
-    .sub {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-  }
-
   @media (max-width: 720px) {
     .grid {
       grid-template-columns: 1fr 1fr;
@@ -291,14 +291,6 @@ const year = new Date().getFullYear();
 
     .about {
       grid-column: 1 / -1;
-    }
-
-    .sub-fields {
-      grid-template-columns: 1fr;
-    }
-
-    .sub-fields :global(.btn) {
-      justify-self: start;
     }
   }
 </style>

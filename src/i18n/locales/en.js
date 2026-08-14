@@ -264,7 +264,7 @@ export const en = {
 
   subscribe: {
     head: "Subscribe",
-    note: "One email when signups open. Nothing else.",
+    note: "A notification email when signups open. Nothing else.",
     email: "Email",
     name: "Name (optional)",
     list: "Event updates",
