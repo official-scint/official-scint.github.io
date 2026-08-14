@@ -17,7 +17,7 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
 ---
 
 <!doctype html>
-<html lang={c.htmlLang}>
+<html lang={c.htmlLang} data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,9 +45,9 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
       (() => {
         try {
           const saved = localStorage.getItem("scint-theme");
-          document.documentElement.dataset.theme = saved === "dark" ? "dark" : "light";
+          document.documentElement.dataset.theme = saved === "light" ? "light" : "dark";
         } catch {
-          document.documentElement.dataset.theme = "light";
+          document.documentElement.dataset.theme = "dark";
         }
         document.documentElement.classList.add("js");
       })();

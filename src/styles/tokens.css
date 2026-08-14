@@ -1,6 +1,6 @@
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
     --blue: #2f6bf6;
   --sky: #2e9bee;
@@ -85,6 +85,10 @@
 
 }
 
+[data-theme="light"] {
+  color-scheme: light;
+}
+
 .accent-blue {
   --accent: var(--blue);
 }
@@ -159,4 +163,3 @@ ul {
   padding: 0;
   list-style: none;
 }
-

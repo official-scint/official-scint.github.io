@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-SCINT（北臺灣學生資訊社群）官方網站。Astro 5 靜態站點，React 只用於動畫 island。中英雙語、白底為預設並可切暗版。透過 GitHub Actions build 後部署至 GitHub Pages（`scint.org`，見 `public/CNAME`）。
+SCINT（北臺灣學生資訊社群）官方網站。Astro 5 靜態站點，React 只用於動畫 island。中英雙語、深色模式為預設並可切換淺色版。透過 GitHub Actions build 後部署至 GitHub Pages（`scint.org`，見 `public/CNAME`）。
 
 ## Development
 
@@ -80,7 +80,7 @@ src/
 - **角括號**：所有小標用 `.bracket`，會自動加上 `< >`
 - **品牌光譜**：`--blue / --sky / --teal / --green`
 - **金色閃電**：`--gold` 是全站唯一的暖色，只用在主要按鈕、狀態、閃電記號（`Bolt.astro`）。用多就失效
-- **白底是預設**：`:root` 是亮版，`[data-theme="dark"]` 才是暗版。新增顏色時兩版都要給值
+- **深色底是預設**：`Base.astro` 的首屏腳本會在沒有亮色設定時套用 `[data-theme="dark"]`；亮版由使用者明確切換並記住。新增顏色時兩版都要給值
 - 單色素材（例如 HackMD logo）在兩種底色下不會同時成立，需備深淺兩版並依主題切換
 
 `Bolt.astro` 用真實素材當 CSS mask，不要改回手繪 SVG。
