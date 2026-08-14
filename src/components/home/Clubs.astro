@@ -15,7 +15,7 @@ const { section, clubs, byRegion, wallItems } = Astro.props;
 
     <div class="body">
       <div class="wall bleed-right">
-        <ClubGravity client:visible items={wallItems} resetLabel={section.reset} />
+        <ClubGravity client:idle items={wallItems} resetLabel={section.reset} />
       </div>
 
       <div class="roster">

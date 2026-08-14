@@ -54,7 +54,6 @@ const { hero, netItems, values } = Astro.props;
   }
 
   .hero :global(.net) {
-    position: absolute;
     inset: 0 3% 0 22%;
     z-index: 1;
   }
@@ -174,7 +173,6 @@ const { hero, netItems, values } = Astro.props;
   @media (max-width: 1024px) {
     .hero :global(.net) {
       inset: 0 0 46% 0;
-      height: auto;
     }
 
     .hero-veil {
