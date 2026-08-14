@@ -43,7 +43,7 @@ export const zh = {
   },
 
   hero: {
-    title: ["SCINT 北臺灣", "資訊社群"],
+    title: ["SCINT 北臺灣", "學生資訊社群"],
     lede:
       "SCINT 串連北臺灣的高中職資訊社團，一起辦活動、開課程、辦競賽。讓想學資訊的人不必獨自摸索，社團幹部也不必每年從零開始。",
     ctaPrimary: "加入 Discord",
