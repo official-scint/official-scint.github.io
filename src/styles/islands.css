@@ -1,0 +1,146 @@
+
+.gravity {
+  position: absolute;
+  inset: 0;
+}
+
+.gravity-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  touch-action: pan-y;
+    user-select: none;
+  -webkit-user-select: none;
+}
+
+.gravity-stage[data-fallback="true"] {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem;
+}
+
+.gravity-stage[data-fallback="true"] .gravity-body {
+  position: relative;
+  cursor: default;
+}
+
+.gravity-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  cursor: grab;
+  will-change: transform;
+}
+
+.gravity-body:active {
+  cursor: grabbing;
+}
+
+.gravity-body img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+.gravity-body:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+}
+
+.gravity-tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--r-sm);
+  background: var(--fg);
+  color: var(--bg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.gravity-body:hover .gravity-tip,
+.gravity-body:focus-visible .gravity-tip {
+  opacity: 1;
+}
+
+.gravity-reset {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  z-index: 3;
+  background: var(--bg);
+}
+
+.net {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.net-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.net-tip {
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, -190%);
+  white-space: nowrap;
+  padding: 0.28rem 0.6rem;
+  border-radius: var(--r-sm);
+  background: var(--gold);
+  color: #0c1024;
+  font-size: 0.74rem;
+  font-weight: 650;
+  pointer-events: none;
+}
+
+.odo {
+  display: inline-flex;
+  align-items: flex-start;
+  line-height: 1;
+    font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.odo-d {
+  display: block;
+  height: 1.16em;
+  overflow: hidden;
+}
+
+.odo-t {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.odo-t > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.16em;
+  line-height: 1;
+}

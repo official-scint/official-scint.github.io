@@ -1,0 +1,279 @@
+---
+import Network from "../islands/Network.jsx";
+import Bolt from "../Bolt.astro";
+import { links, site } from "../../data/site.js";
+
+const { hero, netItems, values } = Astro.props;
+---
+
+<section class="hero accent-blue" id="home">
+  <Network client:load items={netItems} />
+  <div class="hero-veil" aria-hidden="true"></div>
+
+  <div class="hero-copy">
+    <p class="bracket">SCINT · EST {site.foundedYear}</p>
+    <h1 class="hero-title" data-type>
+      {hero.title[0]}<br />{hero.title[1]}
+    </h1>
+    <p class="hero-lede">{hero.lede}</p>
+
+    <div class="hero-cta">
+      <a class="btn btn-gold" href={links.discord} target="_blank" rel="noopener noreferrer">
+        <Bolt size={15} />
+        {hero.ctaPrimary}
+      </a>
+      <a class="btn btn-outline" href="#events">{hero.ctaSecondary}</a>
+    </div>
+  </div>
+
+  <dl class="hero-stats">
+    {hero.stats.map((stat) => (
+      <div>
+        <dd>
+          {typeof values[stat.v] === "number" ? (
+            <span data-count={values[stat.v]}>0</span>
+          ) : (
+            <span class="stat-word">{values[stat.v]}</span>
+          )}
+        </dd>
+        <dt>{stat.k}</dt>
+      </div>
+    ))}
+  </dl>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100dvh;
+    min-height: 34rem;
+    overflow: hidden;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
+      radial-gradient(ellipse 60% 50% at 72% 45%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%);
+  }
+
+  .hero :global(.net) {
+    position: absolute;
+    inset: 0 3% 0 22%;
+    z-index: 1;
+  }
+
+  .hero-veil {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: color-mix(in srgb, var(--bg) 10%, transparent);
+  }
+
+  .hero-copy {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: var(--spine-x);
+    transform: translateY(-50%);
+    max-width: min(42rem, 54vw);
+    pointer-events: none;
+  }
+
+  .hero-copy a {
+    pointer-events: auto;
+  }
+
+  .hero-title {
+    margin-top: 1.2rem;
+    font-size: clamp(2.6rem, 5.6vw, 4.8rem);
+    line-height: 1.06;
+    font-weight: 800;
+  }
+
+  .hero-lede {
+    margin-top: 1.4rem;
+    max-width: 40ch;
+    color: color-mix(in srgb, var(--fg) 82%, transparent);
+    font-size: clamp(1.06rem, 1.4vw, 1.28rem);
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2.25rem;
+  }
+
+  .hero-cta :global(.btn) {
+    padding: 0.95rem 1.9rem;
+    font-size: 1.05rem;
+  }
+
+  .hero-stats {
+    position: absolute;
+    z-index: 3;
+    left: var(--spine-x);
+    bottom: clamp(1.75rem, 5vh, 3.25rem);
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(2rem, 5vw, 4rem);
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .hero-stats dd {
+    margin: 0;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--blue);
+  }
+
+  .stat-word {
+    font-size: 0.78em;
+  }
+
+  .hero-stats dt {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--fg-2);
+  }
+
+  @media (min-width: 1025px) and (max-height: 900px) {
+    .hero-title {
+      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    }
+
+    .hero-lede {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      margin-top: 1.6rem;
+    }
+  }
+
+  @media (min-width: 1025px) and (max-height: 760px) {
+    .hero-title {
+      font-size: clamp(2rem, 3.6vw, 2.8rem);
+    }
+
+    .hero-lede {
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .hero-cta :global(.btn) {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .hero :global(.net) {
+      inset: 0 0 46% 0;
+      height: auto;
+    }
+
+    .hero-veil {
+      background: color-mix(in srgb, var(--bg) 34%, transparent);
+    }
+
+    .hero-copy {
+      top: auto;
+      bottom: 8.5rem;
+      transform: none;
+      max-width: none;
+      right: var(--gutter);
+    }
+
+    .hero-lede {
+      margin-top: 1rem;
+      max-width: none;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .hero-cta {
+      margin-top: 1.35rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: clamp(2.2rem, 8.5vw, 2.6rem);
+    }
+
+    .hero-copy {
+      bottom: 7rem;
+    }
+
+    .hero-lede {
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .hero-cta :global(.btn) {
+      padding: 0.8rem 1.35rem;
+      font-size: 0.95rem;
+    }
+
+    .hero-stats {
+      gap: 1.5rem;
+    }
+
+    .hero-stats dd {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) and (max-height: 720px) {
+    .hero :global(.net) {
+      inset: 0 0 56% 0;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .hero-copy {
+      bottom: 7.5rem;
+    }
+
+    .hero-lede {
+      margin-top: 0.85rem;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .hero-cta {
+      margin-top: 0.85rem;
+    }
+
+    .hero-cta :global(.btn) {
+      padding: 0.7rem 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-stats dd {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) and (max-height: 600px) {
+    .hero-copy .bracket {
+      display: none;
+    }
+
+    .hero-title {
+      font-size: 1.6rem;
+    }
+
+    .hero-lede {
+      font-size: 0.8rem;
+      line-height: 1.45;
+    }
+  }
+</style>

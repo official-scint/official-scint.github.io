@@ -1,0 +1,123 @@
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.35rem;
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease,
+    box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.btn-primary {
+  background: var(--fg);
+  color: var(--bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: #0c1024;
+  box-shadow: 0 6px 18px -6px color-mix(in srgb, var(--gold) 70%, transparent);
+}
+
+.btn-gold:hover,
+.btn-gold:focus-visible {
+  background: var(--gold-lit);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--fg);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-sm {
+  padding: 0.48rem 0.95rem;
+  font-size: 0.87rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link .chev {
+  transition: transform 0.2s ease;
+}
+
+.link:hover .chev {
+  transform: translateX(3px);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--r-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--bg-sunk);
+  color: var(--fg-2);
+}
+
+.chip-accent {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+}
+
+.chip-live {
+  background: color-mix(in srgb, var(--gold) 16%, transparent);
+  color: color-mix(in srgb, var(--gold) 78%, var(--fg));
+}
+
+.chip-live::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--gold) 70%, transparent);
+  animation: ping 2s ease-out infinite;
+}
+
+@keyframes ping {
+  to {
+    box-shadow: 0 0 0 7px transparent;
+  }
+}
+

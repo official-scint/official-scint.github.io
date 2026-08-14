@@ -1,0 +1,162 @@
+
+:root {
+  color-scheme: light;
+
+    --blue: #2f6bf6;
+  --sky: #2e9bee;
+  --teal: #12bfab;
+  --green: #22c98a;
+  --gold: #e0a413;
+  --gold-lit: #f0b429;
+
+  --accent: var(--blue);
+
+  --bg: #ffffff;
+  --bg-soft: #f7f9fd;
+  --surface: #ffffff;
+  --bg-sunk: #edf1f9;
+
+  --fg: #0c1024;
+  --fg-2: #4a5570;
+  --fg-3: #7b86a3;
+
+  --line: #e5eaf3;
+  --line-strong: #ccd5e6;
+
+  --on-accent: #ffffff;
+
+  --shadow-sm: 0 1px 2px rgba(12, 16, 36, 0.05);
+  --shadow-md: 0 6px 20px rgba(12, 16, 36, 0.08);
+  --shadow-lg: 0 16px 40px rgba(12, 16, 36, 0.12);
+
+  --r-sm: 6px;
+  --r: 10px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+
+    --font: "Noto Sans TC Variable", "Noto Sans TC", "PingFang TC",
+    "Microsoft JhengHei", sans-serif;
+    --font-display: "JetBrains Mono Variable", "JetBrains Mono", "SF Mono",
+    "Cascadia Code", Consolas, monospace;
+    --font-code: var(--font-display);
+
+    --font-kai: "Kaiti TC", "BiauKai", "標楷體", "DFKai-SB", "TW-Kai", "Kaiti SC",
+    "STKaiti", var(--font);
+
+  --gutter: clamp(1rem, 3.5vw, 2rem);
+  --page: 1180px;
+
+    --nav-h: 3.9rem;
+  --nav-top: clamp(0.6rem, 1.4vh, 1rem);
+  --nav-space: calc(var(--nav-h) + var(--nav-top) * 2);
+
+    --spine-x: clamp(1.25rem, 7vw, 7.5rem);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+    --blue: #5b8dff;
+  --sky: #58b3f5;
+  --teal: #2ad6c0;
+  --green: #3fdc9c;
+    --gold: #f6c445;
+  --gold-lit: #f8e08f;
+
+    --accent: var(--blue);
+
+    --bg: #050711;
+  --bg-soft: #080b18;
+  --surface: #0c1020;
+  --bg-sunk: #12152a;
+
+  --fg: #f2f4fd;
+  --fg-2: #a3accb;
+  --fg-3: #6d7695;
+
+  --line: #1b1f36;
+  --line-strong: #2b3152;
+
+  --on-accent: #000000;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 6px 22px rgba(0, 0, 0, 0.65);
+  --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.75);
+
+}
+
+.accent-blue {
+  --accent: var(--blue);
+}
+.accent-sky {
+  --accent: var(--sky);
+}
+.accent-teal {
+  --accent: var(--teal);
+}
+.accent-green {
+  --accent: var(--green);
+}
+.accent-gold {
+  --accent: var(--gold);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html[lang^="zh"] {
+  --font: var(--font-kai);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-space) + 1rem);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--gold);
+  color: #0c1024;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+

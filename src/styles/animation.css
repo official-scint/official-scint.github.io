@@ -1,0 +1,69 @@
+
+.rise {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.rise.in {
+  opacity: 1;
+  transform: none;
+}
+
+.stagger > * {
+  transition-delay: calc(var(--i, 0) * 65ms);
+}
+
+.rise[style*="--i"] {
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .cursor-glow,
+  .entry-curtain {
+    display: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html:not(.js) .cursor-glow,
+html:not(.js) .entry-curtain {
+  display: none;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+  padding: 0.75rem 1.15rem;
+  border-radius: 0 0 var(--r) 0;
+  background: var(--gold);
+  color: #0c1024;
+  font-weight: 600;
+}
+
+.skip:focus {
+  left: 0;
+}
+

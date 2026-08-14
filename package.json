@@ -1,0 +1,21 @@
+{
+  "name": "scint-website",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/noto-sans-tc": "^5.3.0",
+    "astro": "^5.16.0",
+    "matter-js": "^0.20.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}

@@ -1,0 +1,62 @@
+---
+import Hero from "./home/Hero.astro";
+import EventsSection from "./home/EventsSection.astro";
+import Services from "./home/Services.astro";
+import Programs from "./home/Programs.astro";
+import Clubs from "./home/Clubs.astro";
+import Collaborate from "./home/Collaborate.astro";
+import About from "./home/About.astro";
+import EasterEggs from "./EasterEggs.astro";
+import clubs from "../data/clubs.json";
+import { site } from "../data/site.js";
+import { REGIONS, regionLabel } from "../data/regions.js";
+import { getContent, DEFAULT_LANG } from "../i18n/index.js";
+
+const { lang = DEFAULT_LANG } = Astro.props;
+const c = getContent(lang);
+const s = c.sections;
+
+const wallItems = clubs.map((club) => ({
+  src: club.image,
+  label: `${club.school} ${club.name}`,
+  href: club.socials?.[0]?.url ?? "",
+}));
+
+const values = {
+  clubs: clubs.length,
+  years: new Date().getFullYear() - site.foundedYear,
+  scope: lang === "en" ? "All Taiwan" : "全臺",
+};
+
+const byRegion = REGIONS.map((region) => ({
+  label: regionLabel(region, lang),
+  list: clubs.filter((club) => club.region === region),
+})).filter((group) => group.list.length > 0);
+
+const running = c.programs.filter((p) => p.status === "running");
+const finished = c.programs.filter((p) => p.status === "done");
+---
+
+<Hero hero={c.hero} netItems={wallItems} values={values} />
+<EventsSection lang={lang} section={s.events} />
+<Services section={s.services} services={c.services} />
+<Programs section={s.programs} running={running} finished={finished} />
+<Clubs section={s.clubs} clubs={clubs} byRegion={byRegion} wallItems={wallItems} />
+<Collaborate section={s.join} steps={c.joinSteps} />
+<About section={s.about} blocks={c.about} faq={c.faq} />
+<EasterEggs />
+
+<script>
+  import { initParallax } from "../scripts/parallax.ts";
+  import { initTypewriter } from "../scripts/typewriter.ts";
+  import { renderCountsInstantly } from "../scripts/counters.ts";
+
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduced) {
+    initParallax();
+    initTypewriter();
+  }
+
+  renderCountsInstantly();
+</script>

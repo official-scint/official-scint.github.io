@@ -1,0 +1,16 @@
+---
+import Base from "../../layouts/Base.astro";
+import BrandingPage from "../../components/BrandingPage.astro";
+import { getContent } from "../../i18n/index.js";
+
+const c = getContent("en");
+---
+
+<Base
+  lang="en"
+  title={c.meta.brandingTitle}
+  description={c.meta.brandingDescription}
+  ogDescription={c.meta.brandingDescription}
+>
+  <BrandingPage lang="en" />
+</Base>

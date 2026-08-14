@@ -1,0 +1,207 @@
+---
+import messages from "../data/messages.json";
+---
+
+<aside class="egg" data-egg-term hidden aria-live="off">
+  <p class="egg-head meta">
+    <span>TRANSMISSION</span>
+    <button type="button" data-egg-close aria-label="close">×</button>
+  </p>
+  <p class="egg-line" data-egg-line></p>
+</aside>
+
+<style>
+  .egg {
+    position: fixed;
+    right: clamp(0.75rem, 2.5vw, 1.75rem);
+    
+    bottom: calc(clamp(0.75rem, 2.5vw, 1.75rem) + 3.6rem);
+    z-index: 150;
+    width: min(290px, calc(100vw - 1.5rem));
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+
+  .egg-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.45rem 0.5rem 0.45rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.72rem;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+  }
+
+  .egg-head button {
+    border: 0;
+    background: none;
+    color: var(--fg-3);
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0.1rem 0.35rem;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+  }
+
+  .egg-head button:hover {
+    color: var(--fg);
+    background: var(--bg-sunk);
+  }
+
+  .egg-line {
+    padding: 0.9rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    min-height: 3.4rem;
+  }
+
+  .egg-line::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 0.95em;
+    margin-left: 3px;
+    vertical-align: -0.12em;
+    background: var(--accent);
+    animation: egg-caret 1s steps(1) infinite;
+  }
+
+  @keyframes egg-caret {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  :global(.temmie) {
+    position: fixed;
+    left: 0;
+    z-index: 190;
+    pointer-events: none;
+  }
+</style>
+
+<script define:vars={{ messages }}>
+  
+  const TARGET = 30;
+  let clicks = 0;
+
+  const randomInt = (min, max) =>
+    Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
+
+  const summonTemmie = () => {
+    const sound = new Audio("/assets/wewe.wav");
+    sound.volume = 0.5;
+    sound.play().catch(() => {});
+
+    const temmie = document.createElement("img");
+    temmie.className = "temmie";
+    temmie.src = "/assets/temmie.png";
+    temmie.alt = "";
+    temmie.style.top = `${randomInt(0, 60)}vw`;
+    temmie.style.width = `${randomInt(20, 50)}%`;
+    document.body.appendChild(temmie);
+    temmie
+      .animate(
+        [{ transform: "translateX(90vw)" }, { transform: "translateX(-100vw)" }],
+        { duration: randomInt(1000, 2000), fill: "forwards" }
+      )
+      .finished.then(() => temmie.remove());
+  };
+
+  addEventListener("scint:bolt", () => {
+    clicks++;
+    if (clicks !== TARGET) return;
+
+    document.body.animate(
+      [
+        { transform: "translate(0, 0) rotate(0deg) scale(1)" },
+        { transform: "translate(10px, 10px) rotate(0deg) scale(1)" },
+        { transform: "translate(10px, 0) rotate(10deg) scale(1.5)" },
+        { transform: "translate(-10px, -10px) rotate(10deg) scale(1)" },
+        { transform: "translate(0, 0) rotate(-10deg) scale(1.5)" },
+      ],
+      { duration: 100, iterations: 5 }
+    );
+
+    for (let i = 0; i < 20; i++) setTimeout(summonTemmie, 100 + i * 100);
+  });
+
+  document.body.addEventListener("click", () => {
+    if (clicks >= TARGET) summonTemmie();
+  });
+
+  
+  const discordBtn = document.querySelector("[data-discord]");
+  const term = document.querySelector("[data-egg-term]");
+  const line = document.querySelector("[data-egg-line]");
+  const closeBtn = document.querySelector("[data-egg-close]");
+
+  if (discordBtn && term && line) {
+    let hoverTimer = null;
+    let seqTimer = null;
+    let typeTimer = null;
+    let step = 0;
+    let dismissed = false;
+
+    const stop = () => {
+      clearTimeout(hoverTimer);
+      clearTimeout(seqTimer);
+      clearInterval(typeTimer);
+    };
+
+    const type = (text, done) => {
+      clearInterval(typeTimer);
+      line.textContent = "";
+      let i = 0;
+      typeTimer = setInterval(() => {
+        line.textContent = text.slice(0, ++i);
+        if (i >= text.length) {
+          clearInterval(typeTimer);
+          done?.();
+        }
+      }, 28);
+    };
+
+    const advance = () => {
+      if (step >= messages.length) {
+        term.hidden = true;
+        step = 0;
+        return;
+      }
+      const message = messages[step++];
+      term.hidden = false;
+      type(message.content, () => {
+        seqTimer = setTimeout(advance, message.delay);
+      });
+    };
+
+    discordBtn.addEventListener("mouseenter", () => {
+      if (dismissed || !term.hidden) return;
+      hoverTimer = setTimeout(advance, 900);
+    });
+
+    discordBtn.addEventListener("mouseleave", () => clearTimeout(hoverTimer));
+
+    discordBtn.addEventListener("click", () => {
+      stop();
+      term.hidden = true;
+      step = 0;
+    });
+
+    closeBtn?.addEventListener("click", () => {
+      stop();
+      dismissed = true;
+      term.hidden = true;
+    });
+  }
+</script>

@@ -1,0 +1,101 @@
+.band {
+  position: relative;
+  padding-block: clamp(4rem, 9vw, 7rem);
+  overflow: clip;
+}
+
+.band-soft {
+  background: var(--bg-soft);
+}
+
+.band::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(60%, 600px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 35%, transparent), transparent);
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 18.5rem) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.wrap-solo {
+  position: relative;
+  display: block;
+}
+
+.pin {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  gap: 0.9rem;
+}
+
+.pin-title {
+  font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+  line-height: 1.16;
+  font-weight: 750;
+}
+
+.pin-note {
+  color: var(--fg-2);
+  font-size: 0.95rem;
+}
+
+.pin-links {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+}
+
+.ghost {
+  position: absolute;
+  top: -2.5rem;
+  left: -1.5rem;
+  z-index: -1;
+  font-family: var(--font-code);
+  font-size: clamp(6rem, 11vw, 10rem);
+  font-weight: 800;
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--accent) 26%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.ghost-solo {
+  top: -1.5rem;
+  left: -1rem;
+}
+
+.bleed-right {
+  margin-right: calc((100vw - min(100vw, var(--page))) / -2 - var(--gutter));
+}
+
+.minor {
+  margin: clamp(2.25rem, 4vw, 3rem) 0 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .wrap {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bleed-right {
+    margin-right: calc(var(--gutter) * -1);
+  }
+}

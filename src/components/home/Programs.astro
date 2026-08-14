@@ -1,0 +1,112 @@
+---
+import Bolt from "../Bolt.astro";
+
+const { section, running, finished } = Astro.props;
+---
+
+<section class="band accent-green" id="programs">
+  <div class="wrap">
+    <aside class="pin rise">
+      <span class="ghost ghost-parallax" aria-hidden="true">03</span>
+      <span class="bracket">{section.en}</span>
+      <h2 class="pin-title">{section.title}</h2>
+      <p class="pin-note running-count">
+        <Bolt size={13} />
+        {section.running(running.length)}
+      </p>
+    </aside>
+
+    <div class="body">
+      <ul class="runs">
+        {running.map((p, i) => (
+          <li class="rise" style={`--i:${i}`}>
+            <span class="run-bolt"><Bolt size={14} /></span>
+            <div class="run-main">
+              <h3 class="run-title">{p.title}</h3>
+              <p class="dim run-body">{p.body}</p>
+            </div>
+            {p.href ? (
+              <a class="link run-link" href={p.href} target="_blank" rel="noopener noreferrer">
+                {p.hrefLabel} <span class="chev">→</span>
+              </a>
+            ) : (
+              <span />
+            )}
+          </li>
+        ))}
+      </ul>
+
+      <p class="minor faint">{section.doneHead}</p>
+      <ul class="dones">
+        {finished.map((p, i) => (
+          <li class="rise" style={`--i:${i}`}>
+            <span class="done-title">{p.title}</span>
+            <span class="dim done-body">{p.body}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .running-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--gold);
+    font-weight: 650;
+  }
+
+  .runs li,
+  .dones li {
+    border-top: 1px solid var(--line);
+  }
+
+  .runs li {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+    gap: clamp(0.85rem, 2vw, 1.5rem);
+    align-items: center;
+    padding-block: clamp(1rem, 2vw, 1.4rem);
+  }
+
+  .runs li:last-child,
+  .dones li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .run-bolt {
+    color: var(--accent);
+  }
+
+  .run-title {
+    font-size: 1.08rem;
+  }
+
+  .run-body,
+  .done-body {
+    color: var(--fg-2);
+  }
+
+  .dones li {
+    display: grid;
+    grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+    gap: clamp(1rem, 3vw, 2rem);
+    padding-block: 0.7rem;
+  }
+
+  @media (max-width: 640px) {
+    .runs li {
+      grid-template-columns: 1.5rem minmax(0, 1fr);
+    }
+
+    .run-link {
+      grid-column: 2;
+    }
+
+    .dones li {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

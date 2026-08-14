@@ -1,0 +1,216 @@
+---
+import "@fontsource-variable/noto-sans-tc";
+import "@fontsource-variable/jetbrains-mono";
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site.js";
+import { getContent, DEFAULT_LANG } from "../i18n/index.js";
+
+const { lang = DEFAULT_LANG, title, description, ogDescription } = Astro.props;
+const c = getContent(lang);
+
+const pageTitle = title ?? c.meta.title;
+const pageDesc = description ?? c.meta.description;
+const pageOg = ogDescription ?? c.meta.og;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+---
+
+<!doctype html>
+<html lang={c.htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="alternate" hreflang="zh-Hant" href={new URL("/", site.url).href} />
+    <link rel="alternate" hreflang="en" href={new URL("/en/", site.url).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL("/", site.url).href} />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:site_name" content={c.meta.orgName} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:description" content={pageOg} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === "en" ? "en_US" : "zh_TW"} />
+    <meta property="og:image" content={new URL(site.ogImage, site.url).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem("scint-theme");
+          document.documentElement.dataset.theme = saved === "dark" ? "dark" : "light";
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div class="entry-curtain" data-entry aria-hidden="true">
+      <span class="entry-logo">&lt;SCI⚡T&gt;</span>
+    </div>
+    <div class="cursor-glow" data-cursor-glow aria-hidden="true"></div>
+
+    <a class="skip" href="#main">{c.ui.skip}</a>
+    <div class="progress" data-progress aria-hidden="true">
+      <svg class="progress-bolt" viewBox="0 0 12 20" aria-hidden="true">
+        <path d="M7 0L0 12h5l-1 8 7-12H6l1-8z" fill="currentColor"/>
+      </svg>
+    </div>
+    <Nav lang={lang} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+
+    <button class="to-top" type="button" data-to-top aria-label={c.ui.toTop} title={c.ui.toTop}>
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path
+          d="M12 19V5M5 12l7-7 7 7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </svg>
+    </button>
+
+    <style>
+      .entry-curtain {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        background: var(--bg);
+      }
+
+      .entry-logo {
+        font-family: var(--font-display);
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        background: linear-gradient(135deg, var(--blue), var(--sky), var(--teal), var(--green));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        opacity: 0;
+        animation: entryFadeIn 0.6s ease 0.1s forwards;
+      }
+
+      @keyframes entryFadeIn {
+        to { opacity: 1; }
+      }
+
+      .entry-curtain[data-reveal] {
+        animation: curtainUp 0.7s cubic-bezier(0.4, 0, 0, 1) forwards;
+      }
+
+      @keyframes curtainUp {
+        to {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+      }
+      .cursor-glow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0;
+        background: radial-gradient(
+          circle,
+          color-mix(in srgb, var(--accent) 8%, transparent),
+          transparent 70%
+        );
+        transform: translate(-50%, -50%);
+        transition: opacity 0.4s ease;
+        will-change: transform;
+      }
+
+      .cursor-glow[data-active] {
+        opacity: 1;
+      }
+      .progress-bolt {
+        position: absolute;
+        right: -4px;
+        top: -7px;
+        width: 10px;
+        height: 16px;
+        color: var(--gold);
+        filter: drop-shadow(0 0 4px color-mix(in srgb, var(--gold) 50%, transparent));
+      }
+
+      .to-top {
+        position: fixed;
+        right: clamp(0.75rem, 2.5vw, 1.75rem);
+        bottom: clamp(0.75rem, 2.5vw, 1.75rem);
+        z-index: 140;
+        display: grid;
+        place-items: center;
+        width: 2.9rem;
+        height: 2.9rem;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: color-mix(in srgb, var(--bg) 85%, transparent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: var(--fg-2);
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(8px);
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease, color 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .to-top[data-show] {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
+
+      .to-top:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+      }
+    </style>
+
+    <script>
+      import { initCurtain } from "../scripts/curtain.ts";
+      import { initCursorGlow } from "../scripts/cursorGlow.ts";
+      import { initReveal } from "../scripts/reveal.ts";
+      import { initScrollProgress } from "../scripts/scrollProgress.ts";
+      import { initBandFlash } from "../scripts/bandFlash.ts";
+      import { initBackToTop } from "../scripts/backToTop.ts";
+      import { initThemeToggle } from "../scripts/theme.ts";
+
+      const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      initCurtain(reduced);
+      initReveal();
+      initScrollProgress();
+      initBackToTop();
+      initThemeToggle(reduced);
+
+      if (!reduced) {
+        initCursorGlow();
+        initBandFlash();
+      }
+    </script>
+  </body>
+</html>

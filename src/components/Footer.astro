@@ -1,0 +1,159 @@
+---
+import { site, links, socials } from "../data/site.js";
+import clubs from "../data/clubs.json";
+import { getContent, DEFAULT_LANG, path } from "../i18n/index.js";
+
+const { lang = DEFAULT_LANG } = Astro.props;
+const c = getContent(lang);
+const home = path(lang, "/");
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="shell">
+    <div class="grid">
+      <div class="about">
+        <a class="brand" href={home} aria-label="SCINT">
+          <img src="/assets/logo.png" alt="SCINT" width="447" height="78" />
+        </a>
+        <p class="dim desc">{c.footer.desc}</p>
+        <p class="faint stamp">
+          {c.meta.orgName} · EST. {site.foundedYear} · {clubs.length} clubs
+        </p>
+      </div>
+
+      <nav class="col" aria-label={c.footer.siteHead}>
+        <h2 class="col-head">{c.footer.siteHead}</h2>
+        <ul>
+          {c.footer.siteLinks.map((l) => <li><a href={`${home}${l.href}`}>{l.label}</a></li>)}
+          <li><a href={path(lang, "/branding/")}>{c.footer.brandingLink}</a></li>
+        </ul>
+      </nav>
+
+      <nav class="col" aria-label={c.footer.contactHead}>
+        <h2 class="col-head">{c.footer.contactHead}</h2>
+        <ul>
+          {
+            socials.map((s) => (
+              <li>
+                <a
+                  href={s.href}
+                  target={s.href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={s.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                >
+                  {s.label}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a href={links.join} target="_blank" rel="noopener noreferrer">{c.footer.joinLink}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="base">
+      <p class="faint">© {year} SCINT. All rights reserved.</p>
+      <div class="base-links">
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <a href={c.other.href} lang={c.other.code}>{c.other.label}</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--line);
+    background: var(--bg-soft);
+    padding-block: clamp(2.75rem, 5vw, 4rem) 1.5rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1fr;
+    gap: clamp(1.75rem, 4vw, 3.5rem);
+  }
+
+  
+  .brand img {
+    height: clamp(30px, 4vw, 40px);
+    width: auto;
+  }
+
+  .brand {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .desc {
+    max-width: 36ch;
+    margin-top: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .stamp {
+    margin-top: 1.1rem;
+    font-size: 0.82rem;
+  }
+
+  .col-head {
+    font-size: 0.88rem;
+    font-weight: 650;
+    margin-bottom: 0.9rem;
+  }
+
+  .col ul {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .col a {
+    font-size: 0.94rem;
+    text-decoration: none;
+    color: var(--fg-2);
+    transition: color 0.18s ease;
+  }
+
+  .col a:hover,
+  .col a:focus-visible {
+    color: var(--accent);
+  }
+
+  .base {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: clamp(2.25rem, 4vw, 3.25rem);
+    padding-top: 1.35rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+  }
+
+  .base-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .base-links a {
+    color: var(--fg-2);
+    text-decoration: none;
+  }
+
+  .base-links a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 720px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .about {
+      grid-column: 1 / -1;
+    }
+  }
+</style>
