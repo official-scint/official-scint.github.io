@@ -101,7 +101,9 @@ const year = new Date().getFullYear();
             <label for="sub-list">{c.subscribe.list}</label>
           </p>
 
-          <altcha-widget challengeurl="https://edm.scint.org/api/public/captcha/altcha"
+          <altcha-widget
+            challengeurl="https://edm.scint.org/api/public/captcha/altcha"
+            strings={JSON.stringify(c.subscribe.captcha)}
           ></altcha-widget>
         </div>
       </form>
@@ -267,7 +269,7 @@ const year = new Date().getFullYear();
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.75rem 1.5rem;
+    gap: 0.75rem 1.25rem;
   }
 
   .sub-list {
@@ -287,8 +289,36 @@ const year = new Date().getFullYear();
     --altcha-color-text: var(--fg-2);
     --altcha-color-border: var(--line-strong);
     --altcha-color-border-focus: var(--accent);
-    --altcha-color-active: var(--accent);
+    --altcha-color-active: var(--gold);
     --altcha-border-radius: var(--r);
+    --altcha-max-width: 15rem;
+    font-size: 0.88rem;
+  }
+
+  .sub-meta :global(.altcha-main) {
+    padding: 0.5rem 0.65rem;
+    gap: 0.5rem;
+  }
+
+  .sub-meta :global(.altcha-checkbox) {
+    height: 18px;
+    width: 18px;
+  }
+
+  .sub-meta :global(.altcha-checkbox input) {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--gold);
+  }
+
+  .sub-meta :global(.altcha-footer) {
+    padding: 0 0.65rem 0.35rem;
+    font-size: 0.66rem;
+    opacity: 0.55;
+  }
+
+  .sub-meta :global(.altcha-logo) {
+    display: none;
   }
 
   @media (max-width: 720px) {
