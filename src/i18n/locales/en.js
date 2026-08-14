@@ -265,10 +265,7 @@ export const en = {
   subscribe: {
     head: "Subscribe",
     note: "A notification email when signups open. Nothing else.",
-    email: "Email",
-    name: "Name (optional)",
-    list: "Event updates",
-    submit: "Subscribe",
+    cta: "Go to signup",
   },
 
   footer: {

@@ -1,4 +1,5 @@
 ---
+import Bolt from "./Bolt.astro";
 import { site, links, socials } from "../data/site.js";
 import clubs from "../data/clubs.json";
 import { getContent, DEFAULT_LANG, path } from "../i18n/index.js";
@@ -59,52 +60,12 @@ const year = new Date().getFullYear();
         <p class="dim sub-note">{c.subscribe.note}</p>
       </div>
 
-      <form
-        class="listmonk-form sub-form"
-        method="post"
-        action="https://edm.scint.org/subscription/form"
-      >
-        <input type="hidden" name="nonce" />
-
-        <div class="sub-fields">
-          <label class="sr-only" for="sub-email">{c.subscribe.email}</label>
-          <input
-            id="sub-email"
-            type="email"
-            name="email"
-            required
-            autocomplete="email"
-            placeholder={c.subscribe.email}
-          />
-
-          <label class="sr-only" for="sub-name">{c.subscribe.name}</label>
-          <input
-            id="sub-name"
-            type="text"
-            name="name"
-            autocomplete="name"
-            placeholder={c.subscribe.name}
-          />
-
-          <button class="btn btn-gold" type="submit">{c.subscribe.submit}</button>
-        </div>
-
-        <div class="sub-meta">
-          <p class="sub-list">
-            <input
-              id="sub-list"
-              type="checkbox"
-              name="l"
-              checked
-              value="913c2438-ba1a-43c0-aea9-72213deb443e"
-            />
-            <label for="sub-list">{c.subscribe.list}</label>
-          </p>
-
-          <altcha-widget challengeurl="https://edm.scint.org/api/public/captcha/altcha"
-          ></altcha-widget>
-        </div>
-      </form>
+      <p class="sub-action">
+        <a class="btn btn-gold" href={links.newsletter} target="_blank" rel="noopener noreferrer">
+          <Bolt size={14} />
+          {c.subscribe.cta}
+        </a>
+      </p>
     </section>
 
     <div class="base">
@@ -116,13 +77,6 @@ const year = new Date().getFullYear();
     </div>
   </div>
 </footer>
-
-<script
-  is:inline
-  type="module"
-  src="https://edm.scint.org/public/static/altcha.umd.js"
-  async
-  defer></script>
 
 <style>
   .footer {
@@ -227,61 +181,8 @@ const year = new Date().getFullYear();
     font-size: 0.88rem;
   }
 
-  .sub-form {
-    flex: 3 1 20rem;
-    display: grid;
-    gap: 0.9rem;
-    max-width: 40rem;
-  }
-
-  .sub-fields {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  .sub-fields input {
-    flex: 1 1 10rem;
-    min-width: 0;
-    padding: 0.7rem 0.9rem;
-    border: 1px solid var(--line-strong);
-    border-radius: var(--r);
-    background: var(--surface);
-    color: var(--fg);
-    font: inherit;
-    font-size: 0.92rem;
-  }
-
-  .sub-fields input::placeholder {
-    color: var(--fg-3);
-  }
-
-  .sub-fields input:focus-visible {
-    border-color: var(--accent);
-  }
-
-  .sub-fields :global(.btn) {
+  .sub-action {
     flex: 0 0 auto;
-    white-space: nowrap;
-  }
-
-  .sub-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem 1.5rem;
-  }
-
-  .sub-list {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.88rem;
-    color: var(--fg-2);
-  }
-
-  .sub-list input {
-    accent-color: var(--gold);
   }
 
   @media (max-width: 720px) {

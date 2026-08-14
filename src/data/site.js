@@ -14,6 +14,7 @@ export const links = {
   github: "https://github.com/official-scint",
   linktree: "https://linktr.ee/scint.tw",
   join: "https://join.scint.org",
+  newsletter: "https://edm.scint.org/subscription/form",
   eventsApi: "https://api.scint.org/events",
 };
 
