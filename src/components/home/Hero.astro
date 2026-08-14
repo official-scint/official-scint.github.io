@@ -54,7 +54,7 @@ const { hero, netItems, values } = Astro.props;
   }
 
   .hero :global(.net) {
-    inset: 0 3% 0 22%;
+    inset: 0 0 0 min(calc(var(--spine-x) + 40rem), 45%);
     z-index: 1;
   }
 
