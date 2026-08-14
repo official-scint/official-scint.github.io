@@ -128,7 +128,9 @@ const enHref = lang === "en" ? here : `/en${here === "/" ? "/" : here}`;
   }
 
   .brand-text {
-    display: grid;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
     line-height: 1.15;
   }
 
@@ -139,9 +141,9 @@ const enHref = lang === "en" ? here : `/en${here === "/" ? "/" : here}`;
   }
 
   .brand-sub {
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    color: var(--fg-3);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--fg-2);
     white-space: nowrap;
   }
 
@@ -327,7 +329,7 @@ const enHref = lang === "en" ? here : `/en${here === "/" ? "/" : here}`;
     background: var(--fg);
   }
 
-  @media (max-width: 1180px) {
+  @media (max-width: 1320px) {
     .brand-sub {
       display: none;
     }

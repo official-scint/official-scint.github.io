@@ -30,7 +30,7 @@ export const en = {
     langToggle: "切換為中文",
     back: "Back to home",
     toTop: "Back to top",
-    masthead: "Student Computing Community · Northern Taiwan",
+    masthead: "— Student Computing Community",
     loading: "Loading events",
     empty: "No public events right now.",
     failed: "Couldn't reach the events feed.",
