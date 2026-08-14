@@ -261,6 +261,15 @@ export const zh = {
     ],
   },
 
+  subscribe: {
+    head: "訂閱",
+    note: "活動開放報名時寄送通知信，不會有其他內容。",
+    email: "電子郵件",
+    name: "姓名（非必填）",
+    list: "活動資訊",
+    submit: "訂閱",
+  },
+
   footer: {
     desc: "串連學生資訊社群，讓跨校交流與資源共享實際發生。",
     siteHead: "站內",

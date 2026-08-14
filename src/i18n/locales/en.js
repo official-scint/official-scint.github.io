@@ -262,6 +262,15 @@ export const en = {
     ],
   },
 
+  subscribe: {
+    head: "Subscribe",
+    note: "A notification email when signups open. Nothing else.",
+    email: "Email",
+    name: "Name (optional)",
+    list: "Event updates",
+    submit: "Subscribe",
+  },
+
   footer: {
     desc: "Connecting student computing communities, so cross-school exchange and shared resources actually happen.",
     siteHead: "This site",
