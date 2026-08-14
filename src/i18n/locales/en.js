@@ -43,7 +43,7 @@ export const en = {
   },
 
   hero: {
-    title: ["SCINT", "Northern Taiwan Student Computing"],
+    title: ["SCINT Northern Taiwan", "Student Computing"],
     lede:
       "SCINT connects high school computing clubs across northern Taiwan — running events, teaching courses, holding contests, and pooling what each of us has. So students don't have to work it out alone, and club officers don't have to start from scratch every year.",
     ctaPrimary: "Join our Discord",
