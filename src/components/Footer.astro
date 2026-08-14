@@ -119,9 +119,7 @@ const year = new Date().getFullYear();
 
 <script
   is:inline
-  type="module"
   src="https://edm.scint.org/public/static/altcha.umd.js"
-  async
   defer></script>
 
 <style>
@@ -282,6 +280,15 @@ const year = new Date().getFullYear();
 
   .sub-list input {
     accent-color: var(--gold);
+  }
+
+  .sub-meta altcha-widget {
+    --altcha-color-base: var(--surface);
+    --altcha-color-text: var(--fg-2);
+    --altcha-color-border: var(--line-strong);
+    --altcha-color-border-focus: var(--accent);
+    --altcha-color-active: var(--accent);
+    --altcha-border-radius: var(--r);
   }
 
   @media (max-width: 720px) {
