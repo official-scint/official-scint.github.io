@@ -57,6 +57,7 @@ export default function Network({ items = [], centerSrc = "/assets/logo-middle.p
     let h = 0;
     let dpr = 1;
     let centerRatio = 0.5;
+    let centerRatioY = 0.5;
     const pointer = { x: -9999, y: -9999, inside: false };
 
     let palette = {
@@ -137,8 +138,11 @@ export default function Network({ items = [], centerSrc = "/assets/logo-middle.p
       dpr = Math.min(2, window.devicePixelRatio || 1);
       w = wrap.clientWidth;
       h = wrap.clientHeight;
-      const ratio = parseFloat(getComputedStyle(wrap).getPropertyValue("--net-center"));
-      centerRatio = Number.isFinite(ratio) ? ratio : 0.5;
+      const style = getComputedStyle(wrap);
+      const ratioX = parseFloat(style.getPropertyValue("--net-center"));
+      const ratioY = parseFloat(style.getPropertyValue("--net-center-y"));
+      centerRatio = Number.isFinite(ratioX) ? ratioX : 0.5;
+      centerRatioY = Number.isFinite(ratioY) ? ratioY : 0.5;
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
       canvas.style.width = `${w}px`;
@@ -220,7 +224,7 @@ export default function Network({ items = [], centerSrc = "/assets/logo-middle.p
       ctx.clearRect(0, 0, w, h);
 
       const cx = w * centerRatio;
-      const cy = h / 2;
+      const cy = h * centerRatioY;
       const minSide = Math.min(w, h);
       const baseR = minSide * 0.36;
       const squash = 0.88;

@@ -20,6 +20,54 @@ const year = new Date().getFullYear();
         <p class="faint stamp">
           {c.meta.orgName} · EST. {site.foundedYear} · {clubs.length} clubs
         </p>
+
+        <div class="sub">
+          <h2 class="col-head">{c.subscribe.head}</h2>
+          <p class="dim sub-note">{c.subscribe.note}</p>
+
+          <form
+            class="listmonk-form sub-form"
+            method="post"
+            action="https://edm.scint.org/subscription/form"
+          >
+            <input type="hidden" name="nonce" />
+
+            <label class="sr-only" for="sub-email">{c.subscribe.email}</label>
+            <input
+              id="sub-email"
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder={c.subscribe.email}
+            />
+
+            <label class="sr-only" for="sub-name">{c.subscribe.name}</label>
+            <input
+              id="sub-name"
+              type="text"
+              name="name"
+              autocomplete="name"
+              placeholder={c.subscribe.name}
+            />
+
+            <p class="sub-list">
+              <input
+                id="sub-list"
+                type="checkbox"
+                name="l"
+                checked
+                value="913c2438-ba1a-43c0-aea9-72213deb443e"
+              />
+              <label for="sub-list">{c.subscribe.list}</label>
+            </p>
+
+            <altcha-widget challengeurl="https://edm.scint.org/api/public/captcha/altcha"
+            ></altcha-widget>
+
+            <button class="btn btn-gold btn-sm" type="submit">{c.subscribe.submit}</button>
+          </form>
+        </div>
       </div>
 
       <nav class="col" aria-label={c.footer.siteHead}>
@@ -62,6 +110,13 @@ const year = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<script
+  is:inline
+  type="module"
+  src="https://edm.scint.org/public/static/altcha.umd.js"
+  async
+  defer></script>
 
 <style>
   .footer {
@@ -145,6 +200,62 @@ const year = new Date().getFullYear();
 
   .base-links a:hover {
     color: var(--accent);
+  }
+
+  .sub {
+    margin-top: 1.75rem;
+    max-width: 26rem;
+  }
+
+  .sub-note {
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+    max-width: 32ch;
+  }
+
+  .sub-form {
+    display: grid;
+    gap: 0.6rem;
+    justify-items: start;
+  }
+
+  .sub-form input[type="email"],
+  .sub-form input[type="text"] {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r);
+    background: var(--surface);
+    color: var(--fg);
+    font: inherit;
+    font-size: 0.92rem;
+  }
+
+  .sub-form input::placeholder {
+    color: var(--fg-3);
+  }
+
+  .sub-form input[type="email"]:focus-visible,
+  .sub-form input[type="text"]:focus-visible {
+    border-color: var(--accent);
+  }
+
+  .sub-list {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.88rem;
+    color: var(--fg-2);
+  }
+
+  .sub-list input {
+    accent-color: var(--gold);
+  }
+
+  .sub-form altcha-widget {
+    --altcha-max-width: 100%;
+    display: block;
+    width: 100%;
   }
 
   @media (max-width: 720px) {
