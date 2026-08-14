@@ -1,0 +1,416 @@
+---
+import { links } from "../data/site.js";
+import { getContent, DEFAULT_LANG, path } from "../i18n/index.js";
+
+const { lang = DEFAULT_LANG } = Astro.props;
+const c = getContent(lang);
+const home = path(lang, "/");
+
+const here = Astro.url.pathname;
+const zhHref = lang === "en" ? here.replace(/^\/en/, "") || "/" : here;
+const enHref = lang === "en" ? here : `/en${here === "/" ? "/" : here}`;
+---
+
+<header class="header" data-nav>
+  <div class="bar">
+    <a class="brand" href={home} aria-label={c.ui.home}>
+      <img src="/assets/logo-middle.png" alt="" width="44" height="23" />
+      <span class="brand-text">
+        <span class="brand-name">SCINT</span>
+        <span class="brand-sub">{c.ui.masthead}</span>
+      </span>
+    </a>
+
+    <nav id="nav-menu" class="nav" aria-label={c.ui.menu}>
+      <ul class="nav-list">
+        <li>
+          <a class="nav-home" href={home} aria-label={c.ui.home} title={c.ui.home}>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+              <path
+                d="M3.6 10.4 12 3.6l8.4 6.8V20a1 1 0 0 1-1 1h-5v-6h-4.8v6h-5a1 1 0 0 1-1-1v-9.6Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        {c.nav.map((item) => <li><a href={`${home}#${item.id}`}>{item.label}</a></li>)}
+      </ul>
+    </nav>
+
+    <div class="tools">
+      <div class="lang" role="group" aria-label={c.ui.langToggle}>
+        <a class="lang-opt" href={zhHref} lang="zh-Hant" aria-current={lang === "zh" ? "true" : undefined}>中</a>
+        <a class="lang-opt" href={enHref} lang="en" aria-current={lang === "en" ? "true" : undefined}>EN</a>
+      </div>
+
+      <button
+        class="theme"
+        type="button"
+        data-theme-toggle
+        aria-label={c.ui.themeToggle}
+        title={c.ui.themeToggle}
+      >
+        <svg class="sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" fill="currentColor"></circle>
+          <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 2.4v2.3M12 19.3v2.3M4.2 12H1.9M22.1 12h-2.3" />
+            <path d="M6.5 6.5 4.9 4.9M19.1 19.1l-1.6-1.6M17.5 6.5l1.6-1.6M4.9 19.1l1.6-1.6" />
+          </g>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z" fill="currentColor"></path>
+        </svg>
+      </button>
+
+      <a
+        class="cta"
+        href={links.discord}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-discord
+      >
+        Discord <span class="cta-arrow">→</span>
+      </a>
+
+      <button
+        class="burger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label={c.ui.menu}
+        data-nav-toggle
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  
+  .header {
+    position: fixed;
+    top: var(--nav-top);
+    left: var(--gutter);
+    right: var(--gutter);
+    z-index: 120;
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    height: var(--nav-h);
+    padding: 0 0.7rem 0 1.15rem;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: color-mix(in srgb, var(--bg) 55%, transparent);
+    backdrop-filter: blur(16px) saturate(1.3);
+    -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  }
+
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    flex: none;
+  }
+
+  
+  .brand img {
+    height: 22px;
+    width: auto;
+  }
+
+  .brand-text {
+    display: grid;
+    line-height: 1.15;
+  }
+
+  .brand-name {
+    font-size: 1.15rem;
+    font-weight: 750;
+    letter-spacing: -0.005em;
+  }
+
+  .brand-sub {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    white-space: nowrap;
+  }
+
+  
+  .nav {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.25rem, 1.2vw, 0.9rem);
+  }
+
+  .nav-list a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.45rem 0.6rem;
+    text-decoration: none;
+    font-size: 0.94rem;
+    font-weight: 550;
+    color: var(--fg-2);
+    white-space: nowrap;
+    transition: color 0.18s ease;
+  }
+
+  .nav-list a:hover,
+  .nav-list a:focus-visible {
+    color: var(--fg);
+  }
+
+  
+  .nav-list a::after {
+    content: "";
+    position: absolute;
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: -0.15rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .nav-list a[aria-current]::after {
+    transform: scaleX(1);
+  }
+
+  .nav-list a[aria-current] {
+    color: var(--fg);
+  }
+
+  .nav-home {
+    color: var(--fg-2);
+  }
+
+  
+  .tools {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: none;
+  }
+
+  
+  .lang {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    overflow: hidden;
+  }
+
+  .lang-opt {
+    display: grid;
+    place-items: center;
+    min-width: 2.1rem;
+    height: 1.85rem;
+    padding-inline: 0.4rem;
+    border-radius: calc(var(--r) - 3px);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 650;
+    color: var(--fg-3);
+    transition: color 0.18s ease, background-color 0.18s ease;
+  }
+
+  .lang-opt:hover {
+    color: var(--fg);
+  }
+
+  .lang-opt[aria-current] {
+    background: var(--gold);
+    color: #0c1024;
+  }
+
+  .theme {
+    display: grid;
+    place-items: center;
+    width: 2.15rem;
+    height: 2.15rem;
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    background: transparent;
+    color: var(--fg-2);
+    cursor: pointer;
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .theme:hover {
+    color: var(--fg);
+    border-color: var(--line-strong);
+  }
+
+  .moon {
+    display: none;
+  }
+
+  :global([data-theme="dark"]) .sun {
+    display: none;
+  }
+
+  :global([data-theme="dark"]) .moon {
+    display: block;
+  }
+
+  
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    height: 2.15rem;
+    padding-inline: 0.95rem;
+    border: 1px solid var(--gold);
+    border-radius: var(--r);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 650;
+    white-space: nowrap;
+    transition: background-color 0.18s ease, color 0.18s ease;
+  }
+
+  .cta:hover,
+  .cta:focus-visible {
+    background: var(--gold);
+    color: #0c1024;
+  }
+
+  .cta-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .cta:hover .cta-arrow {
+    transform: translateX(3px);
+  }
+
+  
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 2.4rem;
+    height: 2.15rem;
+    padding: 0 0.55rem;
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .burger span {
+    display: block;
+    height: 1.6px;
+    border-radius: 2px;
+    background: var(--fg);
+  }
+
+  @media (max-width: 1180px) {
+    .brand-sub {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .burger {
+      display: flex;
+    }
+
+    .cta {
+      display: none;
+    }
+
+    .nav {
+      position: absolute;
+      inset: calc(var(--nav-h) + 0.5rem) 0 auto 0;
+      display: none;
+      padding: 0.6rem;
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .header[data-open="true"] .nav {
+      display: block;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .nav-list a {
+      padding: 0.8rem 0.75rem;
+      font-size: 1rem;
+      border-radius: var(--r-sm);
+    }
+
+    .nav-list a::after {
+      left: 0.75rem;
+      right: auto;
+      bottom: 0.5rem;
+      width: 1rem;
+    }
+
+    .nav-list a[aria-current] {
+      background: color-mix(in srgb, var(--gold) 12%, transparent);
+    }
+
+    .nav-home {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .bar {
+      padding-left: 0.85rem;
+    }
+
+    .brand-name {
+      font-size: 1.02rem;
+    }
+  }
+</style>
+
+<script>
+  const header = document.querySelector("[data-nav]");
+  const toggle = document.querySelector("[data-nav-toggle]");
+
+  const setOpen = (open: boolean) => {
+    header?.setAttribute("data-open", String(open));
+    toggle?.setAttribute("aria-expanded", String(open));
+  };
+
+  toggle?.addEventListener("click", () => {
+    setOpen(header?.getAttribute("data-open") !== "true");
+  });
+
+  document
+    .querySelectorAll<HTMLAnchorElement>(".nav-list a")
+    .forEach((a) => a.addEventListener("click", () => setOpen(false)));
+</script>

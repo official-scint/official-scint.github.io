@@ -1,0 +1,155 @@
+---
+import Bolt from "../Bolt.astro";
+import { links, partners } from "../../data/site.js";
+
+const { section, steps } = Astro.props;
+---
+
+<section class="band accent-gold" id="join">
+  <div class="wrap">
+    <aside class="pin rise">
+      <span class="ghost ghost-parallax" aria-hidden="true">05</span>
+      <span class="bracket">{section.en}</span>
+      <h2 class="pin-title">{section.title}</h2>
+      <p class="pin-note">{section.lede}</p>
+      <p class="pin-links">
+        <a class="btn btn-gold" href={links.join} target="_blank" rel="noopener noreferrer">
+          <Bolt size={15} />
+          {section.ctaPrimary}
+        </a>
+      </p>
+    </aside>
+
+    <div class="body">
+      <ol class="steps">
+        {steps.map(([n, title, body], i) => (
+          <li class="rise" style={`--i:${i}`}>
+            <span class="step-n">{n}</span>
+            <div>
+              <h3 class="step-title">{title}</h3>
+              <p class="dim step-body">{body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="partners">
+      <p class="partners-label">{section.partners}</p>
+      <div class="pmarquee">
+        <div class="pmarquee-track">
+          {[...partners, ...partners].map((p, i) => (
+            <a
+              href={p.url || undefined}
+              target={p.url ? "_blank" : undefined}
+              rel={p.url ? "noopener noreferrer" : undefined}
+              title={p.name}
+              aria-hidden={i >= partners.length ? "true" : undefined}
+              tabindex={i >= partners.length ? -1 : undefined}
+            >
+              <img class="on-light" src={p.image} alt={p.name} loading="lazy" style={p.scale ? `--logo-scale:${p.scale}` : undefined} />
+              <img class="on-dark" src={p.imageDark ?? p.image} alt="" loading="lazy" aria-hidden="true" style={p.scale ? `--logo-scale:${p.scale}` : undefined} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps li {
+    display: grid;
+    grid-template-columns: 2.6rem minmax(0, 1fr);
+    gap: 1.1rem;
+    padding-block: clamp(1.1rem, 2vw, 1.5rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .steps li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .step-n {
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .step-title {
+    font-size: 1.08rem;
+  }
+
+  .step-body {
+    color: var(--fg-2);
+  }
+
+  .partners {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    padding-block: clamp(2rem, 3.5vw, 3.25rem);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pmarquee {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  }
+
+  .pmarquee-track {
+    display: flex;
+    align-items: center;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    width: max-content;
+    animation: pslide 34s linear infinite;
+  }
+
+  @keyframes pslide {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .partners a {
+    display: grid;
+    place-items: center;
+    flex: none;
+  }
+
+  .partners .on-dark {
+    display: none;
+  }
+
+  :global([data-theme="dark"]) .partners .on-light {
+    display: none;
+  }
+
+  :global([data-theme="dark"]) .partners .on-dark {
+    display: block;
+  }
+
+  .partners img {
+    height: calc(clamp(64px, 7.5vw, 100px) * var(--logo-scale, 1));
+    width: auto;
+    max-width: 280px;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1024px) {
+    .partners {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

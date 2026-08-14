@@ -1,0 +1,77 @@
+---
+import { links } from "../../data/site.js";
+import { ACCENTS } from "../../data/accents.js";
+
+const { section, services } = Astro.props;
+---
+
+<section class="band band-soft accent-teal" id="services">
+  <div class="wrap">
+    <aside class="pin rise">
+      <span class="ghost ghost-parallax" aria-hidden="true">02</span>
+      <span class="bracket">{section.en}</span>
+      <h2 class="pin-title">{section.title}</h2>
+      <p class="pin-note">{section.note}</p>
+      <p class="pin-links">
+        <a class="link" href={links.join} target="_blank" rel="noopener noreferrer">
+          {section.cta} <span class="chev">→</span>
+        </a>
+      </p>
+    </aside>
+
+    <div class="body">
+      <ol class="offers">
+        {services.map((svc, i) => (
+          <li class={`offer ${ACCENTS[i % ACCENTS.length]} rise`} style={`--i:${i}`}>
+            <span class="offer-n">{String(i + 1).padStart(2, "0")}</span>
+            <div class="offer-main">
+              <p class="offer-tag">{svc.tag}</p>
+              <h3 class="offer-name">{svc.title}</h3>
+              <p class="offer-body">{svc.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<style>
+  .offer {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: clamp(1rem, 2.5vw, 2rem);
+    align-items: baseline;
+    padding-block: clamp(1rem, 2vw, 1.4rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .offer:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .offer-n,
+  .offer-tag {
+    color: var(--accent);
+  }
+
+  .offer-n {
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .offer-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .offer-name {
+    margin: 0.3rem 0 0.4rem;
+    font-size: clamp(1.2rem, 1.9vw, 1.5rem);
+  }
+
+  .offer-body {
+    color: var(--fg-2);
+  }
+</style>

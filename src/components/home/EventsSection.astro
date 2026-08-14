@@ -1,0 +1,29 @@
+---
+import Events from "../Events.astro";
+import { links } from "../../data/site.js";
+
+const { lang, section } = Astro.props;
+---
+
+<section class="band accent-sky" id="events">
+  <div class="wrap">
+    <aside class="pin rise">
+      <span class="ghost ghost-parallax" aria-hidden="true">01</span>
+      <span class="bracket">{section.en}</span>
+      <h2 class="pin-title">{section.title}</h2>
+      <p class="pin-note">{section.note}</p>
+      <p class="pin-links">
+        <a class="link" href={links.linktree} target="_blank" rel="noopener noreferrer">
+          {section.all} <span class="chev">→</span>
+        </a>
+        <a class="link" href={links.discord} target="_blank" rel="noopener noreferrer">
+          {section.announce} <span class="chev">→</span>
+        </a>
+      </p>
+    </aside>
+
+    <div class="body bleed-right">
+      <Events lang={lang} />
+    </div>
+  </div>
+</section>

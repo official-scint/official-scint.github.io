@@ -1,0 +1,148 @@
+---
+import ClubGravity from "../islands/originkit/ClubGravity.jsx";
+
+const { section, clubs, byRegion, wallItems } = Astro.props;
+---
+
+<section class="band band-soft accent-blue" id="clubs">
+  <div class="wrap">
+    <aside class="pin rise">
+      <span class="ghost ghost-parallax" aria-hidden="true">04</span>
+      <span class="bracket">{section.en}</span>
+      <h2 class="pin-title">{section.title(clubs.length)}</h2>
+      <p class="pin-note">{section.note}</p>
+    </aside>
+
+    <div class="body">
+      <div class="wall bleed-right">
+        <ClubGravity client:idle items={wallItems} resetLabel={section.reset} />
+      </div>
+
+      <div class="roster">
+        {byRegion.map((group, i) => (
+          <section class="region rise" style={`--i:${i}`}>
+            <h3 class="region-head">
+              <span class="region-name">{group.label}</span>
+              <span class="region-n">{group.list.length}</span>
+            </h3>
+            <ul>
+              {group.list.map((club) => (
+                <li>
+                  {club.socials?.[0]?.url ? (
+                    <a href={club.socials[0].url} target="_blank" rel="noopener noreferrer">
+                      <img src={club.image} alt="" loading="lazy" />
+                      <span>
+                        <span class="faint club-school">{club.school}</span>
+                        <span class="club-name">{club.name}</span>
+                      </span>
+                    </a>
+                  ) : (
+                    <span class="club-static">
+                      <img src={club.image} alt="" loading="lazy" />
+                      <span>
+                        <span class="faint club-school">{club.school}</span>
+                        <span class="club-name">{club.name}</span>
+                      </span>
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #clubs .wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .wall {
+    position: relative;
+    height: clamp(300px, 42vh, 420px);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .wall :global(astro-island) {
+    display: block;
+    height: 100%;
+  }
+
+  .roster {
+    display: grid;
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .region {
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: clamp(1rem, 3vw, 2rem);
+    padding-block: 1.1rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .region:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .region-head {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .region-n {
+    color: var(--accent);
+    font-size: 0.74rem;
+  }
+
+  .region ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+  }
+
+  .region a,
+  .club-static {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.35rem 0;
+    text-decoration: none;
+  }
+
+  .region img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--line);
+    filter: grayscale(1);
+  }
+
+  .region a:hover img {
+    filter: none;
+  }
+
+  .club-school {
+    display: block;
+    font-size: 0.7rem;
+  }
+
+  .club-name {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--fg-2);
+  }
+
+  @media (max-width: 640px) {
+    .region {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,18 @@
+---
+const { size = 16, class: className = "" } = Astro.props;
+---
+
+<span class={`bolt-mark ${className}`} style={`--bolt-h:${size}px`} aria-hidden="true"></span>
+
+<style>
+  .bolt-mark {
+    display: inline-block;
+    flex: none;
+    height: var(--bolt-h);
+    
+    width: calc(var(--bolt-h) * 1.936);
+    background: currentColor;
+    -webkit-mask: url("/assets/logo-middle.png") no-repeat center / contain;
+    mask: url("/assets/logo-middle.png") no-repeat center / contain;
+  }
+</style>
