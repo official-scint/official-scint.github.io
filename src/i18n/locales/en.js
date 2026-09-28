@@ -269,6 +269,14 @@ export const en = {
     name: "Name (optional)",
     list: "Event updates",
     submit: "Subscribe",
+    captcha: {
+      label: "I'm not a robot",
+      verifying: "Verifying…",
+      verified: "Verified",
+      error: "Verification failed. Please try again later.",
+      expired: "Verification expired. Please verify again.",
+      waitAlert: "Verifying, please wait.",
+    },
   },
 
   footer: {
