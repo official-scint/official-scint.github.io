@@ -250,5 +250,17 @@
         "url": "https://www.instagram.com/nehs_iced/"
       }
     ]
+  },
+  {
+    "name": "程式研究社",
+    "school": "臺北市立和平高級中學",
+    "region": "臺北",
+    "image": "/assets/clubs/club22.jpg",
+    "socials": [
+      {
+        "name": "instagram",
+        "url": "https://www.instagram.com/hpcp_13/"
+      }
+    ]
   }
 ]
